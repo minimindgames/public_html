@@ -1,0 +1,1 @@
+{"cards":5,"grid":{"size":1,"x":4,"y":4},"players":[{"energyValue":3,"energyDelay":300,"hq":[{"x":1.5,"y":1.5,"produceDelay":1000}],"colonies":[{"x":2.35,"y":1.75}]},{"ai":{"routes":1},"hq":[{"x":3.5,"y":1.5,"produceDelay":1000}]},{"minings":[{"x":3.5,"y":2.75},{"x":2.5,"y":1.25}],"planets":[{"name":"saturn","x":1.8,"y":3.9}]}],"data":{}}

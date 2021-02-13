@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, minimal-ui=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="alternate" hreflang="en" href="https://gamequack.com/en/super-tic-tac-toe/">
+    <title>Tic Tac Toe game: Mobile Tic Tac Toe online and how to win Tic Tac Toe</title>
+    <meta name="description" content="Tic Tac Toe rules, how to win tic tac toe, games like tic tac toe.">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="/index.min.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../">Etusivu</a></li>
+          <li><a href="#tic-tac-toe-game">Tic Tac Toe game</a></li>
+          <li><a href="#tic-tac-toe-rules">Tic Tac Toe rules</a></li>
+          <li><a href="#how-to-win-tic-tac-toe">How to win Tic Tac Toe</a></li>
+          <li><a href="#games-like-tic-tac-toe">Games like Tic Tac Toe</a></li>
+        </ul>
+      </nav>
+      <h1>Tic Tac Toe game: Mobile Tic Tac Toe online and how to win Tic Tac Toe</h1>
+      <p>This mobile Tic Tac Toe online game runs on any Internet browser and device, such as with mobile touchscreen, computer mouse or keyboard and even with a D-pad game controller.</p>
+    </header>
+    <h2 id="tic-tac-toe-game">Tic Tac Toe game</h2>
+    <div class="game" id="canvas"></div>
+    <div class="center">
+      <button type="button" onclick="startFullScreen();">Avaa koko näytölle</button>
+    </div>
+    <script>
+      function gameConfig(state) {
+          state.loadGame = "tech";
+          state.loadCollection = "";
+      }
+      function startFullScreen() {
+          window.game.scale.startFullScreen(false);
+      }
+      
+    </script>
+    <script>
+      function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }
+      async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
+          async('/supertictactoe/index.min.js', function() {
+              createGame();
+          });
+      });
+    </script>
+    <main>
+      <article>
+        <h2 id="tic-tac-toe-rules">Tic Tac Toe rules</h2>
+        <div>
+          <p>Tic Tac Toe rules are simple: Tic Tac Toe is a game for two players, X and O, who take turns marking the squares in a 3x3 grid. The first player to mark a horizontal, vertical or diagonal line of three squares wins.</p>
+        </div>
+        <h2 id="how-to-win-tic-tac-toe">How to win Tic Tac Toe</h2>
+        <div>
+          <p>A simple rule is better than a lecture. Here are six good rules about how to win Tic Tac Toe:</p>
+          <ol>
+            <li>Win a line</li>
+            <li>Block a line</li>
+            <li>Make a fork</li>
+            <li>Block a fork</li>
+            <li>Exploit opening mistake</li>
+            <li>Avoid opening mistake</li>
+          </ol>
+          <p>If you play by these rules, you will never lose a game of Tic Tac Toe again.</p>
+          <h3 id="win-a-line">Win a line</h3>
+          <div>
+            <figure class="image"><img src="/tictactoe/img/tic-tac-toe-1.png" alt="Win a line" height="264" width="264">
+              <figcaption>Win a line</figcaption>
+            </figure>
+            <p>The first player to get three in a line wins, so you should take it right away.</p>
+            <p class="question">Where X should play next to win?</p>
+          </div>
+          <h3 id="block-a-line">Block a line</h3>
+          <div>
+            <figure class="image"><img src="/tictactoe/img/tic-tac-toe-2.png" alt="Block a line" height="264" width="264">
+              <figcaption>Block a line</figcaption>
+            </figure>
+            <p>If your opponent is missing only one in a line, you should block it immediately.</p>
+            <p class="question">Where O should play next to not lose the game?</p>
+          </div>
+          <h3 id="make-a-fork">Make a fork</h3>
+          <div>
+            <figure class="image"><img src="/tictactoe/img/tic-tac-toe-3.png" alt="Make a fork" height="264" width="264">
+              <figcaption>Make a fork</figcaption>
+            </figure>
+            <p>A &quot;Fork&quot; means two separate winning lines, from which your opponent can block just one.</p>
+            <p class="question">X can make a fork in two squares, which ones?</p>
+          </div>
+          <h3 id="block-a-fork">Block a fork</h3>
+          <div>
+            <figure class="image"><img src="/tictactoe/img/tic-tac-toe-4.png" alt="Block a fork" height="264" width="264">
+              <figcaption>Block a fork</figcaption>
+            </figure>
+            <p>You are losing if your opponent can create a fork, so prevent to create one.</p>
+            <p class="question">Why it's bad for O to play in a corner?</p>
+          </div>
+          <h3 id="exploit-opening-mistake">Exploit opening mistake</h3>
+          <div>
+            <figure class="image"><img src="/tictactoe/img/tic-tac-toe-5.png" alt="Exploit opening mistake" height="264" width="264">
+              <figcaption>Exploit opening mistake</figcaption>
+            </figure>
+            <p>If you start at the center and your opponents responds by playing in an edge, you can force a win.</p>
+            <p class="question">Which two squares will finish the match for X?</p>
+          </div>
+          <h3 id="avoid-opening-mistakes">Avoid opening mistakes</h3>
+          <div>
+            <figure class="image"><img src="/tictactoe/img/tic-tac-toe-6.png" alt="Avoid opening mistakes" height="264" width="264">
+              <figcaption>Avoid opening mistakes</figcaption>
+            </figure>
+            <p>A corner is a good square to start, because it gives your opponent more chances to make mistakes.</p>
+            <p class="question">Which two squares O should not mark, or X can force a win?</p>
+          </div>
+          <p>These simple rules are all you need to win Tic Tac Toe always (or more accurately, not lose if your opponent knows them too). However, this Tic Tac Toe game rewards fast playing and when you play fast the rules are not so simple to follow anymore :)</p>
+        </div>
+        <h2 id="games-like-tic-tac-toe">Games like Tic Tac Toe</h2>
+        <p>You may be interested in similar games to Tic Tac Toe: <a href="/fi/ristinolla/">Ristinolla</a>.
+        </p>
+        <div>
+        </div>
+      </article>
+    </main>
+    <hr>
+    <aside class="small">Pelin krediitit: Äänet NoiseForFun.com.</aside>
+    <footer><small>&copy; GameQuack.com 2020</small>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+{"tutorial":{"text":"Drag from HQ\nto create\na waypoint.","x":2,"y":2,"hand":[1.2,1.5]},"cards":2,"grid":{"size":1,"x":4,"y":4},"players":[{"energyValue":9,"energyDelay":0,"hq":[{"x":1.25,"y":2,"produceDelay":400}]},{"hq":[{"x":3.75,"y":3.5,"produceDelay":2000}]},{"planets":[{"name":"pluto","x":3,"y":3.75},{"name":"moon","x":2.25,"y":2.25}]}],"data":{}}

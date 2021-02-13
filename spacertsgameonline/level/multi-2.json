@@ -1,0 +1,1 @@
+{"cards":6,"grid":{"size":1,"x":5,"y":5},"players":[{"energyValue":6,"energyDelay":550,"hq":[{"x":1.5,"y":1.5,"produceDelay":1500}]},{"ai":{"routes":1},"hq":[{"x":4.5,"y":1.5,"produceDelay":1000}]},{"ai":{"routes":1},"hq":[{"x":3,"y":4.5,"produceDelay":1000}]},{"minings":[{"x":1.5,"y":3},{"x":4.5,"y":3},{"x":3,"y":3},{"x":3,"y":1.5,"levelMax":2}]}],"data":{}}

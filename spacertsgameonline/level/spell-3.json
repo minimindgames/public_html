@@ -1,0 +1,1 @@
+{"cards":5,"grid":{"size":1,"x":3,"y":3},"players":[{"energyValue":6,"energyDelay":500,"hq":[{"x":1.25,"y":1.25,"produceDelay":1000}]},{"ai":{"gravity":1,"gravityDelay":6},"hq":[{"x":3,"y":2.5,"produceDelay":600}]},{"minings":[{"x":1.5,"y":2},{"x":2.4,"y":2},{"x":2.2,"y":1.5},{"x":2.55,"y":2.75}]}],"data":{}}

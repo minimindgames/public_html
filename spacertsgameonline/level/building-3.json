@@ -1,0 +1,1 @@
+{"tutorial":{"text":"Limited energy,\nuse it wisely.","x":1,"y":1,"hand":[0.5,0.25]},"cards":2,"grid":{"size":1,"x":4,"y":4},"players":[{"energyValue":6,"energyDelay":0,"hq":[{"x":1.25,"y":3.5,"produceDelay":500}]},{"hq":[{"x":3.75,"y":3.5,"produceDelay":2000}]},{"planets":[{"name":"pluto","x":3,"y":1.95},{"name":"saturn","x":2.25,"y":3.25}]}],"data":{}}

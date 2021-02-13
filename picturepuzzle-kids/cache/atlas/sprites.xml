@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="bg-bottom-above.png"	x="0"	y="0"	width="1280"	height="54" frameX="-0" frameY="-0" frameWidth="1280" frameHeight="54"/>
+	<SubTexture name="bg-bottom.png"	x="643"	y="1608"	width="100"	height="100" frameX="-0" frameY="-0" frameWidth="100" frameHeight="100"/>
+	<SubTexture name="bg-grass.png"	x="0"	y="188"	width="1279"	height="79" frameX="-0" frameY="-0" frameWidth="1279" frameHeight="79"/>
+	<SubTexture name="bg-hill.png"	x="0"	y="268"	width="1219"	height="281" frameX="-0" frameY="-0" frameWidth="1219" frameHeight="281"/>
+	<SubTexture name="bg-snow.png"	x="0"	y="1351"	width="598"	height="135" frameX="-0" frameY="-0" frameWidth="598" frameHeight="135"/>
+	<SubTexture name="bg-top-below.png"	x="0"	y="55"	width="1280"	height="132" frameX="-0" frameY="-0" frameWidth="1280" frameHeight="132"/>
+	<SubTexture name="bg-top.png"	x="208"	y="1934"	width="100"	height="50" frameX="-0" frameY="-0" frameWidth="100" frameHeight="50"/>
+	<SubTexture name="effect-leaf.png"	x="31"	y="2017"	width="28"	height="21" frameX="-0" frameY="-0" frameWidth="28" frameHeight="21"/>
+	<SubTexture name="effect-rain-drop.png"	x="60"	y="2017"	width="10"	height="11" frameX="-0" frameY="-0" frameWidth="10" frameHeight="11"/>
+	<SubTexture name="effect-star.png"	x="610"	y="1963"	width="75"	height="75" frameX="-0" frameY="-0" frameWidth="75" frameHeight="75"/>
+	<SubTexture name="header-quack.png"	x="686"	y="1963"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="main-bud.png"	x="0"	y="2017"	width="30"	height="22" frameX="-0" frameY="-0" frameWidth="30" frameHeight="22"/>
+	<SubTexture name="main-fence.png"	x="332"	y="1834"	width="277"	height="194" frameX="-0" frameY="-0" frameWidth="277" frameHeight="194"/>
+	<SubTexture name="main-iglu.png"	x="332"	y="1635"	width="310"	height="198" frameX="-0" frameY="-0" frameWidth="310" frameHeight="198"/>
+	<SubTexture name="main-play-bg.png"	x="107"	y="1934"	width="100"	height="100" frameX="-0" frameY="-0" frameWidth="100" frameHeight="100"/>
+	<SubTexture name="main-play.png"	x="643"	y="1709"	width="72"	height="72" frameX="-0" frameY="-0" frameWidth="72" frameHeight="72"/>
+	<SubTexture name="main-progress-step.png"	x="716"	y="1709"	width="65"	height="86" frameX="-0" frameY="-0" frameWidth="65" frameHeight="86"/>
+	<SubTexture name="main-tree.png"	x="599"	y="1351"	width="196"	height="256" frameX="-0" frameY="-0" frameWidth="196" frameHeight="256"/>
+	<SubTexture name="popup-banner.png"	x="0"	y="1487"	width="565"	height="147" frameX="-0" frameY="-0" frameWidth="565" frameHeight="147"/>
+	<SubTexture name="popup-dim.png"	x="610"	y="1834"	width="128"	height="128" frameX="-0" frameY="-0" frameWidth="128" frameHeight="128"/>
+	<SubTexture name="popup-hand.png"	x="0"	y="1934"	width="106"	height="82" frameX="-0" frameY="-0" frameWidth="106" frameHeight="82"/>
+	<SubTexture name="quack-kid.png"	x="0"	y="1635"	width="331"	height="298" frameX="-0" frameY="-0" frameWidth="331" frameHeight="298"/>
+	<SubTexture name="sudoku-bg.png"	x="0"	y="550"	width="800"	height="800" frameX="-0" frameY="-0" frameWidth="800" frameHeight="800"/>
+</TextureAtlas>

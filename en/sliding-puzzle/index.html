@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,width=device-width,minimal-ui=1"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/sudoku-helppo/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/liukuva-kuvapeli/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/super-ristinolla/"><title>Sliding puzzle: Solve and make sliding picture puzzles online</title><link rel="shortcut icon" type="image/png" href="/img/favicon.png"><meta name="description" content="Free sliding puzzles, make sliding puzzle, sliding puzzles online, picture puzzle games."><link rel="stylesheet" href="/index.min.css"></head><body><header><nav><ul><li><a href="../" rel="nofollow"><img src="/img/icon-72.png" width="72" height="72" alt="Home"></a></li><li><a href="#sliding-puzzle">Sliding puzzle</a></li><li><a href="#free-sliding-puzzles">Free sliding puzzles</a></li><li><a href="#make-sliding-puzzle">Make sliding puzzle</a></li><li><a href="#sliding-puzzles-online">Sliding puzzles online</a></li><li><a href="#picture-puzzle-games">Picture puzzle games</a></li></ul></nav><h1>Sliding puzzle: Solve and make sliding picture puzzles online</h1><p>Sliding puzzles are challenging, and even more so, with random online pictures and without numbered tiles. In this game you'll need good logical reasoning and pattern recognition skills for this game.</p></header><div class="game" id="sliding-puzzle"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Open fullscreen</button></div></div><h2 id="free-sliding-puzzles">Free sliding puzzles</h2><div><div><script>function changeQuery(text) {
+        var input = document.getElementById("query");
+        input.value = text;
+        queryChanged(text);
+    }</script><div class="list"><p>Type a word to search for pictures, such as: <span style="color: blue;" onclick="changeQuery('Discover');">Discover</span> <span style="color: blue;" onclick="changeQuery('Girl');">Girl</span> <span style="color: blue;" onclick="changeQuery('Road');">Road</span> <span style="color: blue;" onclick="changeQuery('Season');">Season</span> <span style="color: blue;" onclick="changeQuery('Travel');">Travel</span> <span style="color: blue;" onclick="changeQuery('World');">World</span></p><p><input id="query" placeholder="Find a pictures..." type="text" onchange="queryChanged(this.value);"><input type="button" value="Search" onclick="queryChanged(document.getElementById('query').value);"></p><div id="imagedata"></div><div style="clear: both;"></div></div><script>function async(u, c) {
+        var d = document, t = 'script',
+                o = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+    
+    async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
+        async('/picturepuzzle/index.min.js', function () {
+            //createGame();
+        });
+    });</script></div><p class="question">Select a picture to make a sliding puzzle online instantly. It's all free.</p></div><h2 id="make-sliding-puzzle">Make sliding puzzle</h2><div><p>How to make a sliding puzzle from online pictures? Easy. Upload pictures to your Unsplash.com collection, and then search for the collection (find search above).</p><p>Once your sliding puzzle is online, you can share it with your friends by sending them the link below.</p><p class="question">Note: Uploading to Unsplash.com is needed, because we don't store your pictures.</p><div><p></p><div style="color: green; padding-left: 1em;" id="share_url_text"></div><p></p><script>function share_url()
+    {
+        //var Url = document.createElement("textarea");
+        document.getElementById('share_url_text').innerHTML = window.location.href;
+        //Copied = Url.createTextRange();
+        //Copied.execCommand("Copy");
+    }
+    share_url();</script></div></div><h2 id="sliding-puzzles-online">Sliding puzzles online</h2><div><p>Solve sliding puzzles online in this simple game, which runs almost on any device with an Internet browser, and it works also on mobile browsers in fullscreen.</p><p>Find a picture from the internet, turn it into a sliding puzzle and discover something unexpected.</p><blockquote>Life's like a box of chocolates, you never know what you're gonna get. » Forrest Gump »</blockquote></div><h2 id="picture-puzzle-games">Picture puzzle games</h2><div><p>You may like about similar picture puzzle games:</p><ul><li><a href="/en/picture-puzzles/">Picture puzzles</a></li><li><a href="/en/color-puzzle/">Color puzzle</a></li><li><a href="/en/childrens-puzzles/">Childrens puzzles</a></li></ul></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>function gameConfig(config) {
+          setGameConfig(config, "3", "");
+      }</script><script>function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }</script><script>async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
+          async('/picturepuzzle/index.min.js', function() {
+              createGame();
+          });
+      });
+      function startFullScreen() {
+          window.game.scale.startFullScreen(false);
+      }</script></body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,width=device-width,minimal-ui=1"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/sudoku-ohje/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/palapelit/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/ristinolla/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/matopeli/"><title>Picture puzzles: Solve and make free picture puzzles online</title><link rel="shortcut icon" type="image/png" href="/img/favicon.png"><meta name="description" content="Free picture puzzles, make picture puzzle, picture puzzles online, picture puzzle games."><link rel="stylesheet" href="/index.min.css"></head><body><header><nav><ul><li><a href="../" rel="nofollow"><img src="/img/icon-72.png" width="72" height="72" alt="Home"></a></li><li><a href="#picture-puzzles">Picture puzzles</a></li><li><a href="#free-picture-puzzles">Free picture puzzles</a></li><li><a href="#make-picture-puzzle">Make picture puzzle</a></li><li><a href="#picture-puzzles-online">Picture puzzles online</a></li><li><a href="#picture-puzzle-games">Picture puzzle games</a></li></ul></nav><h1>Picture puzzles: Solve and make free picture puzzles online</h1><p>Try to solve picture puzzles with as few moves as possible, make free picture puzzles online and improve your picture perception skills.</p></header><div class="game" id="picture-puzzles"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Open fullscreen</button></div></div><h2 id="free-picture-puzzles">Free picture puzzles</h2><div><div><script>function changeQuery(text) {
+        var input = document.getElementById("query");
+        input.value = text;
+        queryChanged(text);
+    }</script><div class="list"><p>Type a word to search for pictures, such as: <span style="color: blue;" onclick="changeQuery('Discover');">Discover</span> <span style="color: blue;" onclick="changeQuery('Girl');">Girl</span> <span style="color: blue;" onclick="changeQuery('Road');">Road</span> <span style="color: blue;" onclick="changeQuery('Season');">Season</span> <span style="color: blue;" onclick="changeQuery('Travel');">Travel</span> <span style="color: blue;" onclick="changeQuery('World');">World</span></p><p><input id="query" placeholder="Find a pictures..." type="text" onchange="queryChanged(this.value);"><input type="button" value="Search" onclick="queryChanged(document.getElementById('query').value);"></p><div id="imagedata"></div><div style="clear: both;"></div></div><script>function async(u, c) {
+        var d = document, t = 'script',
+                o = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+    
+    async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
+        async('/picturepuzzle/index.min.js', function () {
+            //createGame();
+        });
+    });</script></div><p class="question">Select a picture to make a picture puzzle online for free instantly.</p></div><h2 id="make-picture-puzzle">Make picture puzzle</h2><div><p>How to make a picture puzzle from online pictures? Easy! Upload pictures to your Unsplash.com collection, and search for it by the collection's name.</p><p>Once your picture puzzle is online, you can share it with your friends by sending them the link below.</p><p class="question">Note: Uploading to Unsplash.com is needed, because we don't store your pictures.</p><div><p></p><div style="color: green; padding-left: 1em;" id="share_url_text"></div><p></p><script>function share_url()
+    {
+        //var Url = document.createElement("textarea");
+        document.getElementById('share_url_text').innerHTML = window.location.href;
+        //Copied = Url.createTextRange();
+        //Copied.execCommand("Copy");
+    }
+    share_url();</script></div></div><h2 id="picture-puzzles-online">Picture puzzles online</h2><div><p>Solve picture puzzles online and you don't need to search for a missing piece of a puzzle anymore. The picture puzzle game runs almost on any device with an Internet browser, and it works also on mobile browsers in fullscreen.</p><p>Find a picture from the internet, turn it into a picture puzzle and discover something unexpected.</p><blockquote>Life's like a box of chocolates, you never know what you're gonna get. » Forrest Gump »</blockquote></div><h2 id="picture-puzzle-games">Picture puzzle games</h2><div><p>You may like about similar picture puzzle games:</p><ul><li><a href="/en/sliding-puzzle/">Sliding puzzle</a></li><li><a href="/en/color-puzzle/">Color puzzle</a></li><li><a href="/en/childrens-puzzles/">Childrens puzzles</a></li></ul></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>function gameConfig(config) {
+          setGameConfig(config, "1", "");
+      }</script><script>function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }</script><script>async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
+          async('/picturepuzzle/index.min.js', function() {
+              createGame();
+          });
+      });
+      function startFullScreen() {
+          window.game.scale.startFullScreen(false);
+      }</script></body></html>

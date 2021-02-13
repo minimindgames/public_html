@@ -1,0 +1,1 @@
+{"cards":2,"grid":{"size":1,"x":4,"y":4},"players":[{"energyValue":4,"energyDelay":0,"hq":[{"x":1.5,"y":1.5,"produceDelay":300}]},{"hq":[{"x":4,"y":1.5,"produceDelay":2000}]},{"planets":[{"name":"moon","x":3,"y":1.5},{"name":"saturn","x":1.25,"y":4.25}]}],"data":{}}

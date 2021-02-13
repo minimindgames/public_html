@@ -1,0 +1,1 @@
+{"tutorial":{"text":"Entropy Field\ndestroys\nDark Energy.","x":1,"y":1.3,"hand":[0.4,1.6]},"cards":5,"grid":{"size":1,"x":3,"y":3},"players":[{"energyValue":3,"energyDelay":700,"hq":[{"x":1.5,"y":2,"produceDelay":1000}]},{"ai":{"gravity":1,"gravityDelay":6},"hq":[{"x":3,"y":1.5,"produceDelay":400}]},{"minings":[{"x":1.7,"y":3},{"x":2.7,"y":2.1}]}],"data":{}}

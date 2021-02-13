@@ -1,0 +1,1 @@
+{"cards":3,"grid":{"size":1,"x":3,"y":3},"players":[{"energyValue":7,"energyDelay":0,"hq":[{"x":1.1,"y":1.15,"produceDelay":500}],"colonies":[{"x":1.5,"y":2.5}]},{"ai":{"gravity":"planet"},"hq":[{"x":3,"y":2.7,"produceDelay":500}]},{"planets":[{"name":"moon","x":2.25,"y":1.1},{"name":"pluto","x":2.15,"y":3.1}]}],"data":{}}

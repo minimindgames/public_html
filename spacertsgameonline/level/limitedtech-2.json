@@ -1,0 +1,1 @@
+{"cards":4,"grid":{"size":1,"x":5,"y":5},"players":[{"hq":[{"x":1.5,"y":2.5,"produceDelay":500}]},{"team":1,"ai":{"routes":1},"hq":[{"x":4.5,"y":1.5,"produceDelay":1000}]},{"team":1,"ai":{"gravity":100},"hq":[{"x":3,"y":5,"produceDelay":500}]},{"minings":[{"x":2,"y":1.5},{"x":2.5,"y":2},{"x":3,"y":3.5},{"x":3.5,"y":2.5},{"x":4,"y":2.5}]}],"data":{}}

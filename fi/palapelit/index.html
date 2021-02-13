@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="fi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,width=device-width,minimal-ui=1"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="alternate" hreflang="en" href="https://minimindgames.com/en/sudoku-guide/"><link rel="alternate" hreflang="en" href="https://minimindgames.com/en/picture-puzzles/"><link rel="alternate" hreflang="en" href="https://minimindgames.com/en/tic-tac-toe-online-game/"><link rel="alternate" hreflang="en" href="https://minimindgames.com/en/snake-game/"><title>Palapelit: Tee ilmaisia palapelejä netissä</title><link rel="shortcut icon" type="image/png" href="/img/favicon.png"><meta name="description" content="Ilmaiset palapelit, tee palapeli, palapelit netissä, kuvapelit."><link rel="stylesheet" href="/index.min.css"></head><body><header><nav><ul><li><a href="../" rel="nofollow"><img src="/img/icon-72.png" width="72" height="72" alt="Etusivu"></a></li><li><a href="#palapelit">Palapelit</a></li><li><a href="#ilmaiset-palapelit">Ilmaiset palapelit</a></li><li><a href="#tee-palapeli">Tee palapeli</a></li><li><a href="#palapelit-netissä">Palapelit netissä</a></li><li><a href="#kuvapelit">Kuvapelit</a></li></ul></nav><h1>Palapelit: Tee ilmaisia palapelejä netissä</h1><p>Yritä ratkaista palapeli mahdollisimman vähillä arvauksilla, tee ilmaisia palapelejä netissä ja paranna kuvanhahmottamisen taitojasi.</p></header><div class="game" id="palapelit"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Avaa koko näytölle</button></div></div><h2 id="ilmaiset-palapelit">Ilmaiset palapelit</h2><div><div><script>function changeQuery(text) {
+        var input = document.getElementById("query");
+        input.value = text;
+        queryChanged(text);
+    }</script><div class="list"><p>Kirjoita hakusana englanniksi etsiäksesi kuvia, kuten: <span style="color: blue;" onclick="changeQuery('Discover');">Discover</span> <span style="color: blue;" onclick="changeQuery('Girl');">Girl</span> <span style="color: blue;" onclick="changeQuery('Road');">Road</span> <span style="color: blue;" onclick="changeQuery('Season');">Season</span> <span style="color: blue;" onclick="changeQuery('Travel');">Travel</span> <span style="color: blue;" onclick="changeQuery('World');">World</span></p><p><input id="query" placeholder="Etsi kuvia..." type="text" onchange="queryChanged(this.value);"><input type="button" value="Search" onclick="queryChanged(document.getElementById('query').value);"></p><div id="imagedata"></div><div style="clear: both;"></div></div></div><p class="question">Valitse kuva ja luo palapeli ilmaiseksi hetkessä.</p></div><h2 id="tee-palapeli">Tee palapeli</h2><div><p>Kuinka teet palapelin verkossa? Helposti! Lataa kuva Unsplash.com sivustolla kokoelmaasi ja etsi se kokoelman nimellä.</p><p>Kun palapeli on valmis, voit jakaa sen ystävillesi lähettämällä heille alla olevan linkin.</p><p class="question">Huomaa: Kuvat täytyy ladata Unsplash.com sivustolle, koska emme talleta kuvia.</p><div><p></p><div style="color: green; padding-left: 1em;" id="share_url_text"></div><p></p><script>function share_url()
+    {
+        //var Url = document.createElement("textarea");
+        document.getElementById('share_url_text').innerHTML = window.location.href;
+        //Copied = Url.createTextRange();
+        //Copied.execCommand("Copy");
+    }
+    share_url();</script></div></div><h2 id="palapelit-netissä">Palapelit netissä</h2><div><p>Ratkaise palapelit helposti netissä, eikä sinun tarvitse enää etsiä sitä puuttuvaa palapelin palaa maton alta. Tämä peli toimii melkein millä tahansa laitteella, missä on Internet-selain. Peli toimii myös pienellä puhelimen näytöllä ja sen saa koko näytölle.</p><p>Etsi kuva Internetistä, tee siitä kuvan palapeli ja löydä jotain odottamatonta.</p><blockquote>Elämä on kuin suklaarasia, et koskaan tiedä mitä saat. » Forrest Gump »</blockquote></div><h2 id="kuvapelit">Kuvapelit</h2><div><p>Voit pitää pitää samanlaisista kuvapeleistä:</p><ul><li><a href="/fi/liukuva-kuvapeli/">Liukuva kuvapeli</a></li><li><a href="/fi/värillinen-pulmapeli/">Värillinen pulmapeli</a></li><li><a href="/fi/lasten-palapelit/">Lasten palapelit</a></li></ul></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>function gameConfig(config) {
+          setGameConfig(config, "1", "");
+      }</script><script>function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }</script><script>async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
+          async('/picturepuzzle/index.min.js', function() {
+              createGame();
+          });
+      });
+      function startFullScreen() {
+          window.game.scale.startFullScreen(false);
+      }</script></body></html>

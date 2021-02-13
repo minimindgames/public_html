@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="ach-inrow-time.png"	x="1044"	y="787"	width="73"	height="74" frameX="-0" frameY="-0" frameWidth="73" frameHeight="74"/>
+	<SubTexture name="ach-inrow.png"	x="969"	y="712"	width="74"	height="66" frameX="-0" frameY="-0" frameWidth="74" frameHeight="66"/>
+	<SubTexture name="ach-wins.png"	x="1044"	y="1825"	width="69"	height="74" frameX="-0" frameY="-0" frameWidth="69" frameHeight="74"/>
+	<SubTexture name="achievement-icon.png"	x="1065"	y="935"	width="64"	height="72" frameX="-0" frameY="-1" frameWidth="64" frameHeight="73"/>
+	<SubTexture name="achievement.png"	x="1044"	y="1969"	width="65"	height="73" frameX="-0" frameY="-1" frameWidth="65" frameHeight="74"/>
+	<SubTexture name="avatar-0.png"	x="1037"	y="188"	width="74"	height="74" frameX="-0" frameY="-0" frameWidth="74" frameHeight="74"/>
+	<SubTexture name="avatar-1.png"	x="969"	y="779"	width="74"	height="74" frameX="-0" frameY="-0" frameWidth="74" frameHeight="74"/>
+	<SubTexture name="avatar-2.png"	x="968"	y="1907"	width="75"	height="75" frameX="-0" frameY="-0" frameWidth="75" frameHeight="75"/>
+	<SubTexture name="avatar-3.png"	x="1036"	y="1750"	width="74"	height="74" frameX="-0" frameY="-0" frameWidth="74" frameHeight="74"/>
+	<SubTexture name="avatar-4.png"	x="969"	y="854"	width="74"	height="74" frameX="-0" frameY="-0" frameWidth="74" frameHeight="74"/>
+	<SubTexture name="avatar-me.png"	x="1044"	y="712"	width="74"	height="74" frameX="-0" frameY="-0" frameWidth="74" frameHeight="74"/>
+	<SubTexture name="bg-grass-above.png"	x="0"	y="133"	width="1280"	height="54" frameX="-0" frameY="-0" frameWidth="1280" frameHeight="54"/>
+	<SubTexture name="bg-grass.png"	x="444"	y="2017"	width="25"	height="25" frameX="-0" frameY="-0" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="bg-top-below.png"	x="0"	y="0"	width="1280"	height="132" frameX="-0" frameY="-0" frameWidth="1280" frameHeight="132"/>
+	<SubTexture name="bg-top.png"	x="839"	y="1993"	width="100"	height="50" frameX="-0" frameY="-0" frameWidth="100" frameHeight="50"/>
+	<SubTexture name="effect-star.png"	x="968"	y="1833"	width="75"	height="73" frameX="-0" frameY="-1" frameWidth="75" frameHeight="75"/>
+	<SubTexture name="header-exit.png"	x="1065"	y="1008"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-info.png"	x="1130"	y="992"	width="60"	height="60" frameX="-0" frameY="-0" frameWidth="60" frameHeight="60"/>
+	<SubTexture name="header-option-bg.png"	x="801"	y="309"	width="402"	height="402" frameX="-0" frameY="-0" frameWidth="402" frameHeight="402"/>
+	<SubTexture name="header-option-fullscreen-active.png"	x="1112"	y="188"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-fullscreen.png"	x="1117"	y="862"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-reset.png"	x="1113"	y="1900"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-sound-active.png"	x="1111"	y="1750"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-sound.png"	x="1119"	y="712"	width="63"	height="63" frameX="-0" frameY="-0" frameWidth="63" frameHeight="63"/>
+	<SubTexture name="header-option.png"	x="1118"	y="787"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-quack.png"	x="1110"	y="1969"	width="64"	height="58" frameX="-0" frameY="-3" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-score-land.png"	x="811"	y="188"	width="124"	height="88" frameX="-0" frameY="-0" frameWidth="124" frameHeight="88"/>
+	<SubTexture name="header-score-port.png"	x="801"	y="892"	width="156"	height="54" frameX="-0" frameY="-0" frameWidth="156" frameHeight="54"/>
+	<SubTexture name="header-time-land.png"	x="666"	y="1750"	width="181"	height="113" frameX="-0" frameY="-0" frameWidth="181" frameHeight="113"/>
+	<SubTexture name="header-time-port.png"	x="0"	y="1974"	width="212"	height="70" frameX="-0" frameY="-0" frameWidth="212" frameHeight="70"/>
+	<SubTexture name="main-board-bg.png"	x="0"	y="1110"	width="574"	height="639" frameX="-0" frameY="-0" frameWidth="574" frameHeight="639"/>
+	<SubTexture name="main-board-score-bg.png"	x="213"	y="1990"	width="181"	height="42" frameX="-0" frameY="-0" frameWidth="181" frameHeight="42"/>
+	<SubTexture name="main-button-1.png"	x="1150"	y="1114"	width="60"	height="60" frameX="-0" frameY="-0" frameWidth="60" frameHeight="60"/>
+	<SubTexture name="main-button-2.png"	x="1150"	y="1053"	width="60"	height="60" frameX="-0" frameY="-0" frameWidth="60" frameHeight="60"/>
+	<SubTexture name="main-button-3.png"	x="1150"	y="1175"	width="60"	height="60" frameX="-0" frameY="-0" frameWidth="60" frameHeight="60"/>
+	<SubTexture name="main-button-4.png"	x="1114"	y="1815"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="main-button-bg.png"	x="955"	y="1750"	width="80"	height="82" frameX="-0" frameY="-0" frameWidth="80" frameHeight="82"/>
+	<SubTexture name="main-more-games.png"	x="801"	y="947"	width="147"	height="141" frameX="-0" frameY="-0" frameWidth="147" frameHeight="141"/>
+	<SubTexture name="main-play-bg.png"	x="936"	y="188"	width="100"	height="100" frameX="-0" frameY="-0" frameWidth="100" frameHeight="100"/>
+	<SubTexture name="main-play-cloud.png"	x="0"	y="1750"	width="250"	height="223" frameX="-0" frameY="-0" frameWidth="250" frameHeight="223"/>
+	<SubTexture name="main-play.png"	x="1044"	y="862"	width="72"	height="72" frameX="-0" frameY="-0" frameWidth="72" frameHeight="72"/>
+	<SubTexture name="main-score.png"	x="465"	y="1941"	width="160"	height="75" frameX="-0" frameY="-0" frameWidth="160" frameHeight="75"/>
+	<SubTexture name="medal.png"	x="626"	y="1941"	width="28"	height="41" frameX="-0" frameY="-0" frameWidth="28" frameHeight="41"/>
+	<SubTexture name="play-bg.png"	x="0"	y="309"	width="800"	height="800" frameX="-0" frameY="-0" frameWidth="800" frameHeight="800"/>
+	<SubTexture name="play-selected.png"	x="1044"	y="1900"	width="68"	height="68" frameX="-0" frameY="-0" frameWidth="68" frameHeight="68"/>
+	<SubTexture name="play-token-0.png"	x="968"	y="1983"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="play-token-1-big.png"	x="666"	y="1864"	width="172"	height="180" frameX="-8" frameY="-0" frameWidth="180" frameHeight="181"/>
+	<SubTexture name="play-token-1.png"	x="1130"	y="927"	width="61"	height="64" frameX="-2" frameY="-0" frameWidth="63" frameHeight="64"/>
+	<SubTexture name="play-token-2-big.png"	x="801"	y="712"	width="167"	height="179" frameX="-1" frameY="-0" frameWidth="168" frameHeight="180"/>
+	<SubTexture name="play-token-2.png"	x="1150"	y="1236"	width="59"	height="64" frameX="-0" frameY="-0" frameWidth="59" frameHeight="64"/>
+	<SubTexture name="popup-achievement-icon.png"	x="949"	y="947"	width="115"	height="130" frameX="-0" frameY="-1" frameWidth="115" frameHeight="131"/>
+	<SubTexture name="popup-banner-bg.png"	x="1150"	y="1301"	width="48"	height="120" frameX="-0" frameY="-0" frameWidth="48" frameHeight="120"/>
+	<SubTexture name="popup-banner.png"	x="0"	y="188"	width="810"	height="120" frameX="-0" frameY="-0" frameWidth="810" frameHeight="120"/>
+	<SubTexture name="popup-dialog-bg.png"	x="575"	y="1110"	width="574"	height="639" frameX="-0" frameY="-0" frameWidth="574" frameHeight="639"/>
+	<SubTexture name="popup-dialog-claim.png"	x="251"	y="1750"	width="213"	height="79" frameX="-0" frameY="-0" frameWidth="213" frameHeight="79"/>
+	<SubTexture name="popup-dialog-close.png"	x="395"	y="1990"	width="48"	height="48" frameX="-0" frameY="-0" frameWidth="48" frameHeight="48"/>
+	<SubTexture name="popup-dialog-play.png"	x="251"	y="1830"	width="213"	height="79" frameX="-0" frameY="-0" frameWidth="213" frameHeight="79"/>
+	<SubTexture name="popup-dialog-quit.png"	x="251"	y="1910"	width="213"	height="79" frameX="-0" frameY="-0" frameWidth="213" frameHeight="79"/>
+	<SubTexture name="popup-dim.png"	x="839"	y="1864"	width="128"	height="128" frameX="-0" frameY="-0" frameWidth="128" frameHeight="128"/>
+	<SubTexture name="popup-hand.png"	x="848"	y="1750"	width="106"	height="82" frameX="-0" frameY="-0" frameWidth="106" frameHeight="82"/>
+	<SubTexture name="quack-sad.png"	x="465"	y="1750"	width="200"	height="190" frameX="-0" frameY="-0" frameWidth="200" frameHeight="190"/>
+</TextureAtlas>

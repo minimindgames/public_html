@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,width=device-width,minimal-ui=1"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/sudoku-ohje/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/palapelit/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/ristinolla/"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/matopeli/"><title>Snake game: Play free one-button Snake game online</title><link rel="shortcut icon" type="image/png" href="/img/favicon.png"><meta name="description" content="One-button game, snake eats bugs, free snake game online, like snake games."><link rel="stylesheet" href="/index.min.css"></head><body><header><nav><ul><li><a href="../" rel="nofollow"><img src="/img/icon-72.png" width="72" height="72" alt="Home"></a></li><li><a href="#snake-game">Snake game</a></li><li><a href="#one-button-game">One-button game</a></li><li><a href="#snake-eats-bugs">Snake eats bugs</a></li><li><a href="#free-snake-game-online">Free Snake game online</a></li><li><a href="#like-snake-games">Like Snake games</a></li></ul></nav><h1>Snake game: Play free one-button Snake game online</h1><p>Steer snake with one-button, eat bugs and avoid biting own tail.</p></header><div class="game" id="snake-game"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Open fullscreen</button></div></div><h2 id="one-button-game">One-button game</h2><div><p>Snake can turn left and right.</p><p>But how to turn left and right with just one-button? The trick is to follow the direction of Snake's wiggle.</p></div><h2 id="snake-eats-bugs">Snake eats bugs</h2><div><p>Eat bugs to stay healthy! Um, that didn't sound right... Eat greens to stay healthy? Ahh, that sounds about right!</p><p>The goal of the game is to eat green bugs, while avoiding others.</p><p class="question">You know greens are good for your immune system and help to fight diseases. But you can yet boost it by your imagination, like watching this exciting video in which a white blood cell (good guy) eats bacteria.</p><div><figure style="float:none;"><iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/JnlULOjUhSQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure></div></div><h2 id="free-snake-game-online">Free Snake game online</h2><div><p>Free Snake games are not uncommon. The specialty of this Snake game is the one-button control and that it works in the browser on almost any device with an Internet browser, including mobile browsers and full screen mode.</p></div><h2 id="like-snake-games">Like Snake games</h2><div><p>You may like about games similar to this Snake game:</p><ul><li><a href="../tic-tac-toe-online-game/">Tic Tac Toe</a></li><li><a href="../childrens-puzzles/">Childrens puzzles</a></li><li><a href="/en/clave-game/">Clave game</a></li><li><a href="/en/top-down-racing-game/">Top down racing game</a></li></ul></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>function gameConfig(config) {
+          setGameConfig(config, "1", "");
+      }</script><script>function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }</script><script>async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
+          async('/snake/index.min.js', function() {
+              createGame();
+          });
+      });
+      function startFullScreen() {
+          //console.log('fullscreen', window.game);
+          var game = window.game;
+          if (!game.device && window.game.parent) {
+              game = window.game.parent;
+          }
+          //console.log(game);
+          if (game && game.device.fullscreen && game.device.fullscreen.available) {
+              game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+              game.scene.getAt(0).scale.startFullscreen();
+          }
+      }</script></body></html>
