@@ -1,0 +1,21 @@
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:minimindgames.com
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?minimindgames.com
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:minimindgames.com
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:minimindgames.com
+Header always set Content-Security-Policy: upgrade-insecure-requests
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:minimindgames.com
+
+<FilesMatch ".(json|ico|jpg|jpeg|png|gif|js|ogg|mp3|css)$">
+ExpiresActive On
+ExpiresDefault "access plus 1 week"
+</FilesMatch>
+
+<FilesMatch ".(json|ico|jpg|jpeg|png|gif|js|ogg|mp3|css)$">
+ExpiresActive On
+ExpiresDefault "access plus 1 week"
+</FilesMatch>
