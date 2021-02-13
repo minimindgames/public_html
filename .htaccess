@@ -19,3 +19,8 @@ ExpiresDefault "access plus 1 week"
 ExpiresActive On
 ExpiresDefault "access plus 1 week"
 </FilesMatch>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} minimindgames\.com [NC]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /en/$1 [L]
