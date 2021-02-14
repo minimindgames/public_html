@@ -13,14 +13,5 @@
           });
       });
       function startFullScreen() {
-          //console.log('fullscreen', window.game);
-          var game = window.game;
-          if (!game.device && window.game.parent) {
-              game = window.game.parent;
-          }
-          //console.log(game);
-          if (game && game.device.fullscreen && game.device.fullscreen.available) {
-              game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
-              game.scene.getAt(0).scale.startFullscreen();
-          }
+          window.game.scale.startFullScreen(false);
       }</script></body></html>
