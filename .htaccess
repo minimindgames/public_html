@@ -23,14 +23,7 @@ ExpiresDefault "access plus 1 week"
 RewriteEngine on
 RewriteCond %{HTTP_HOST} minimindgames\.com [NC]
 RewriteCond %{REQUEST_URI} ^/$
-RewriteRule ^(.*)$ /en/$1 [L]
-
-RewriteEngine on
-RewriteCond %{HTTP_HOST} minimindgames.com [NC]
-RewriteCond %{REQUEST_URI} !^/en/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /en/$1
+RewriteRule ^(.*)$ /en/minimind/$1 [L]
 
 RewriteEngine On
 RewriteBase /
