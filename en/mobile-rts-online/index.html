@@ -7,11 +7,20 @@
         o.src = u;
         if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
         s.parentNode.insertBefore(o, s);
-      }</script><script>async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
-          async('/spacertsgameonline/index.min.js', function() {
+      }</script><script>async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function() {
+          async('/darkuniverse/index.min.js', function() {
               createGame();
           });
       });
       function startFullScreen() {
-          window.game.scale.startFullScreen(false);
+          //console.log('fullscreen', window.game);
+          var game = window.game;
+          if (!game.device && window.game.parent) {
+              game = window.game.parent;
+          }
+          //console.log(game);
+          if (game && game.device.fullscreen && game.device.fullscreen.available) {
+              game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+              game.scene.getAt(0).scale.startFullscreen();
+          }
       }</script></body></html>
