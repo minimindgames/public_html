@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no,maximum-scale=1,user-scalable=no"><title>Mini Mind Games</title><meta name="description" content="Play mini mind games online."><link rel="shortcut icon" type="image/png" href="/img/favicon.png"><link rel="canonical" href="./"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="minimindgames"><meta name="apple-mobile-web-app-title" content="minimindgames"><meta name="theme-color" content="#fff"><meta name="msapplication-navbutton-color" content="#fff"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-starturl" content="/"><link rel="icon" sizes="192x192" href="/img/icon-192.png"><link rel="icon" sizes="512x512" href="/img/icon-512.png"><link rel="apple-touch-icon" href="/img/icon-180.png"><link rel="apple-touch-icon" sizes="192x192" href="/img/icon-192.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/icon-512.png"><style>html, body, div {
+                margin: 0;
+                border: 0;
+            }</style></head><body><div style="min-width: 640px; min-height: 320px;" id="canvas"></div><script>function gameConfig(config) {
+                setGameConfig(config, "tech", "");
+            }
+            function async(u, c) {
+                var d = document, t = 'script',
+                        o = d.createElement(t),
+                        s = d.getElementsByTagName(t)[0];
+                o.src = u;
+                if (c) {
+                    o.addEventListener('load', function (e) {
+                        c(null, e);
+                    }, false);
+                }
+                s.parentNode.insertBefore(o, s);
+            }
+            async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
+                async('/minimind/index.min.js', function () {
+                    createGame();
+                });
+            });
+            function startFullScreen() {
+                //console.log('fullscreen', window.game);
+                var game = window.game;
+                if (!game.device && window.game.parent) {
+                    game = window.game.parent;
+                }
+                //console.log(game);
+                if (game && game.device.fullscreen && game.device.fullscreen.available) {
+                    game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+                    game.scene.getAt(0).scale.startFullscreen();
+                }
+            }</script></body></html>
