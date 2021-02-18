@@ -8,7 +8,22 @@
                 display: block;
                 margin: 0;
                 border: 0;
-            }</style></head><body><div id="canvas"></div><script>function gameConfig(config) {
+            }
+
+            .float{
+                position:fixed;
+                width:10em;
+                height:1.75em;
+                top:0.5em;
+                left: 45%;
+                background-color:#69f;
+                color:#FFF;
+                border-radius:5px;
+                text-align:center;
+                box-shadow: 1px 1px 2px #ccf;
+                padding-top: 0.5em;
+                text-decoration: none;
+            }</style></head><body><a href="#" onclick="startFullScreen();" class="float">FULLSCREEN</a><div id="canvas"></div><script>function gameConfig(config) {
                 setGameConfig(config, "tech", "");
             }
             function async(u, c) {
@@ -39,4 +54,15 @@
                     game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
                     game.scene.getAt(0).scale.startFullscreen();
                 }
+            }
+            var fullscreenDiv = document.getElementById('fullscreen');
+            function fade(opacity) {
+                fullscreenDiv.style.opacity = opacity / 100;
+                fullscreenDiv.style.filter = 'alpha(opacity=' + opacity + ')';
+                if (opacity === 1) {
+                    fullscreenDiv.style.display = 'none';
+                }
+            }
+            for (let i = 1; i <= 100; i++) {
+                setTimeout("fade(" + (100 - i) + ")", i * 50);
             }</script></body></html>
