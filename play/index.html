@@ -12,18 +12,17 @@
 
             .float{
                 position:fixed;
-                width:10em;
-                height:1.75em;
-                top:0.5em;
+                top: 0.5em;
                 left: 50%;
-                margin-left: -5em;
+		font-size: 1em;
+		width: 14em;
+                margin-left: -7em;
                 background-color:#69f;
                 color:#FFF;
                 border-radius:5px;
                 text-align:center;
                 box-shadow: 1px 1px 2px #ccf;
-                padding-top: 0.5em;
-                padding-bottom: 1.5em;
+                padding: 1em 0em 1em 0em;
                 text-decoration: none;
             }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div id="canvas"></div><script>function gameConfig(config) {
                 setGameConfig(config, "tech", "");
@@ -71,5 +70,5 @@
                 }
             }
             for (let i = 1; i <= 100; i++) {
-                setTimeout("fade(" + (100 - i) + ")", i * 150);
+                setTimeout("fade(" + (100 - i) + ")", i * 100);
             }</script></body></html>
