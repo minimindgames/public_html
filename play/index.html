@@ -47,6 +47,8 @@
             });
             function startFullScreen() {
                 //console.log('fullscreen', window.game);
+                fullscreenDiv.style.display = 'none';
+                
                 var game = window.game;
                 if (!game.device && window.game.parent) {
                     game = window.game.parent;
@@ -59,6 +61,9 @@
             }
             var fullscreenDiv = document.getElementById('fullscreen');
             function fade(opacity) {
+                if (fullscreenDiv.style.display === 'none') {
+                    return;
+                }
                 fullscreenDiv.style.opacity = opacity / 100;
                 fullscreenDiv.style.filter = 'alpha(opacity=' + opacity + ')';
                 if (opacity === 1) {
