@@ -1,1 +1,1 @@
-{"id":0,"grid":{"size":1,"x":60,"y":90,"w":6,"h":10},"players":[{"bot":[{"x":0,"y":0}]}]}
+{"id":0,"grid":{"size":1,"x":60,"y":90,"w":6,"h":10},"players":[{"bot":[{"position":-1}],"emitter":[{"position":-1}]},{"guard":[{"position":"unit","unit":[2,3]}]}]}
