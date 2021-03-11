@@ -40,7 +40,7 @@
                 s.parentNode.insertBefore(o, s);
             }
             async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                async('/minimind/index.min.js', function () {
+                async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
                     createGame();
                 });
             });
