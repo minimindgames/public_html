@@ -1,1 +1,1 @@
-{"id":0,"grid":{"size":1,"x":60,"y":90,"w":6,"h":10},"players":[{"bot":[{"position":-1}],"emitter":[{"position":-1}]},{"guard":[{"position":"unit","unit":[2,3]}]}]}
+{"id":0,"grid":{"size":1,"x":60,"y":90,"w":6,"h":10},"units":[{"type":"Energy","player":0,"unit":[1],"incubation":1,"freq":10},{"type":"Guard","player":1,"unit":[2,3],"incubation":0.05,"freq":4},{"type":"Virus","player":1,"unit":[1],"incubation":0.1,"freq":20}],"players":[{"bot":[{"position":-1}],"emitter":[{"position":-1}]},{"guard":[{"position":"unit","unit":[2,3],"incubation":-1}]}]}
