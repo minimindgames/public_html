@@ -14,8 +14,8 @@
                 position:fixed;
                 top: 0.5em;
                 left: 50%;
-		font-size: 1em;
-		width: 14em;
+                font-size: 1em;
+                width: 14em;
                 margin-left: -7em;
                 background-color:#69f;
                 color:#FFF;
@@ -39,15 +39,40 @@
                 }
                 s.parentNode.insertBefore(o, s);
             }
-            async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
-                    createGame();
+            const url = new URL(window.location.href);
+            if (url.hash.length > 1) {
+                let minigame = url.hash.substr(1);
+                if (minigame.charAt(0) === '/') {
+                    let minigame = url.hash.substr(2);
+                    async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
+                        async('/' + minigame + '/index.min.js', function () {
+                            createGame();
+                        });
+                    });
+                } else {
+                    async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
+                        async('/minigame/index.min.js' + "?v=" + Date.now() + '#' + minigame, function () {
+                            createGame();
+                        });
+                    });
+                }
+            } else {
+                async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
+                    async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
+                        createGame();
+                    });
                 });
-            });
+            }
+
             function startFullScreen() {
                 //console.log('fullscreen', window.game);
                 fullscreenDiv.style.display = 'none';
-                
+
+                if (window.game && window.game.scale && window.game.scale.startFullScreen) {
+                    window.game.scale.startFullScreen(false);
+                    return;
+                }
+
                 var game = window.game;
                 if (!game.device && window.game.parent) {
                     game = window.game.parent;
