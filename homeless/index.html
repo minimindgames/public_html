@@ -1,61 +1,129 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        body {
-            background: white;
-        }
+    <head>
+        <style>
+            body {
+                background: white;
+            }
 
-        .clock {
-            /*position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);*/
-            color: #000000;
-            font-size: 300px;
-            font-family: Orbitron;
-            letter-spacing: 7px;
-        }
-    </style>
+            .clock {
+                /*position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);*/
+                color: #000000;
+                font-size: 300px;
+                font-family: Orbitron;
+                letter-spacing: 7px;
+                text-align: center;
+            }
+            .alarm {
+                /*float: left;*/
+                display: inline;
+                margin: 50px;
+                color: gray;
+                font-size: 150px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
     <body>
 
-        <!--button onclick="openFullscreen();">Open fullscreen</button>-->
+        <script>
+            var body, alarms, prevH = -1;
+            var profiles = {
+                color: ['white', '#ff0', '#0ff', '#f0f'],
+                timeStart: 0,
+                time: [6, 6, 6, 6]
+            };
+            var date;
+            function getColor() {
+                var h = date.getHours(); // 0 - 23
+                let time = profiles.timeStart;
+                for (let i = 0; i < profiles.time.length; i++) {
+                    time += profiles.time[i];
+                    if (h < time) {
+                        return profiles.color[i];
+                    }
+                    if (time >= 24) {
+                        time -= 24;
+                    }
+                }
+                return profiles.color[0];
+            }
+            //console.log(getColor())
+        </script>
+
         <div style="display: block;" id="MyClockDisplay" class="clock" onload="showTime()"></div>
 
         <canvas style="display: none; float: left;" id="canvas" width="800" height="800">
         </canvas>
 
-        <div style="display: block; font-size: 150px; color: orange;" id="alarm" onload="">60</div>
+        <div id="alarms" style="text-align: center;">
+            <div class="alarm">2</div>
+            <div class="alarm">10</div>
+            <div class="alarm">25</div>
+            <div class="alarm">45</div>
+            <div class="alarm">60</div>
+        </div>
+        <div id="alarmActive" style="display: none; color: white; font-size: 150px; text-align: center;">
+        </div>
 
         <script>
             var alarmtime = 0;
             var alarmelem = 0;
-            function addAlarm(time) {
-                alarmelem = document.getElementById("alarm");
-                alarmelem.style.color = 'red';
-                alarmtime = time;
+            function addAlarm(e) {
+                alarmelem = e;
+                //alarmelem.style.color = 'red';
+                alarmtime = parseInt(e.innerText) * 60;
                 setTimeout(alarmTick, 0);
+                alarms.style.display = 'none';
+                alarmActive.innerHTML = '';
+                alarmActive.style.display = 'block';
             }
             function alarmTick() {
                 alarmtime--;
-                alarmelem.innerHTML = alarmtime;
-                if (alarmtime === 0) {
+                if (alarmtime <= 0) {
                     alarm();
                     return;
                 }
+                alarmActive.innerHTML = parseInt(alarmtime / 60) + ':' + alarmtime % 60;
                 setTimeout(alarmTick, 1000);
+                //body.style.backgroundColor = 'red';
             }
             function alarm() {
-                alarmelem.style.color = 'gray';
-                alarmelem.innerHTML = '60';
+                //alarmelem.style.color = 'gray';
+                //alarmelem.innerHTML = '2 min';
                 beep();
+                alarmActive.innerHTML = 'HOPI-HOPI';
+                //alarms.style.display = 'block';
+                //alarmActive.style.display = 'none';
+                //body.style.backgroundColor = 'black';
             }
         </script>
         <script>
             function showTime() {
-                var date = new Date();
                 var h = date.getHours(); // 0 - 23
                 var m = date.getMinutes(); // 0 - 59
                 var s = date.getSeconds(); // 0 - 59
+                if (h === 20 && m === 29 && s === 0) {
+                    beep();
+                }
+                let day = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][date.getDay()];
+                if (day === 'sun' || day === 'sat') {
+                    if (day === 'tue') {
+                        if (h === 8 && m === 5 && s === 0) {
+                            beep();
+                        }
+                        if (h === 8 && m === 45 && s === 0) {
+                            beep();
+                        }
+                    } else {
+                        if (h === 7 && m === 55 && s === 0) {
+                            beep();
+                        }
+                    }
+                }
                 /*var session = "AM";
                  
                  if (h == 0) {
@@ -71,9 +139,23 @@
                 m = (m < 10) ? "0" + m : m;
                 s = (s < 10) ? "0" + s : s;
 
+                let e = document.getElementById("MyClockDisplay");
                 var time = h + ":" + m + ":" + s;
-                document.getElementById("MyClockDisplay").innerText = time;
-                document.getElementById("MyClockDisplay").textContent = time;
+                if (h !== prevH) {
+                    prevH = h;
+                    let color = getColor();
+                    if (color === 'white') {
+                        e.style.color = 'black';
+                        body.style.backgroundColor = 'white';
+                        //alarms.style.display = 'none';
+                    } else {
+                        e.style.color = color;
+                        body.style.backgroundColor = 'black';
+                        //alarms.style.display = 'block';
+                    }
+                }
+                e.innerText = time;
+                //e.textContent = time;
             }
         </script>
 
@@ -132,7 +214,7 @@
 
 
             function drawTime(ctx, radius) {
-                var now = new Date();
+                var now = date;
                 var hour = now.getHours();
                 var minute = now.getMinutes();
                 var second = now.getSeconds();
@@ -193,6 +275,7 @@
         <script>
             var digital = true;
             function showTimeSelect() {
+                date = new Date();
                 if (digital) {
                     showTime();
                 } else {
@@ -200,7 +283,6 @@
                 }
                 setTimeout(showTimeSelect, 1000);
             }
-            showTimeSelect();
 
             function toggleClock() {
                 if (digital) {
@@ -218,16 +300,29 @@
             var fullscreen = false;
             window.onload = function ()
             {
-                var redDiv = document.getElementsByTagName("BODY")[0];
+                body = document.getElementsByTagName("BODY")[0];
+                alarms = document.getElementById("alarms");
+                alarmActive = document.getElementById("alarmActive");
+                //var redDiv = document.getElementsByTagName("BODY")[0];
                 //console.log(redDiv)
-                redDiv.onclick = function (e) {
+                body.onclick = function (e) {
+
                     var ev = e || window.event;
                     //console.log(e.target, this)
-                    if (e.target === document.getElementById("alarm")) {
-                        addAlarm(60);
-                    } else {
-                        toggleClock();
+                    if (e.target === alarmActive) {
+                        alarms.style.display = 'block';
+                        alarmActive.style.display = 'none';
+                        return;
                     }
+                    let arr = document.getElementsByClassName("alarm");
+                    for (let i = 0; i < arr.length; i++) {
+                        //console.log(e.target, arr[i])
+                        if (e.target === arr[i]) {
+                            addAlarm(arr[i]);
+                            return;
+                        }
+                    }
+                    toggleClock();
                     /*if (e.target !== this)
                      return;*/
                     //console.log('red div was clicked');
@@ -238,12 +333,66 @@
 
                     }
                 }
+                showTimeSelect();
             }
 
             function beep() {
                 var snd = new Audio("https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3");
                 snd.play();
             }
+        </script>
+        <script>
+            function getXml(u) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this);
+                    }
+                };
+                xhttp.open("GET", u, true);
+                xhttp.send();
+            }
+
+            function myFunction(xml) {
+                var xmlDoc = xml.responseXML;
+                let text = xml.responseText;
+                const parser = new DOMParser();
+                const xmlDOM = parser.parseFromString(text, "text/xml");
+                //const value = xmlDOM.getElementsByTagName("target:member");
+                //$("[nodeName=aws:year]").attr('number')
+                let s = $("gml\:id").attr('obs-obs-1-1-t2m');
+                
+//                let ns = xmlDoc.getElementsByTagNameNS("http://www.opengis.net/wfs/2.0", 'wfs')
+                console.log(s)
+                //var x = xmlDoc.getElementsByTagName('wfs:member')
+                //console.log(x)
+                //var a = xmlDoc.getElementById("time1-1-1");
+                //console.log(a);
+//var greetNode = xmlDoc.getElementsByTagName('om')[0];                
+//console.log(greetNode)
+                /*                var dom = new DOMParser( ).parseFromString(xml.responseText,
+                 "application/xml");*/
+//console.log(dom)
+                /*var location = dom.getElementsByTagNameNS (
+                 "http://www.opengis.net/gml", "id" ) [0];
+                 
+                 console.log(location)*/
+                return xmlDoc.getElementById("obs-obs-1-1-ws_10min");
+                /*document.getElementById("demo").innerHTML =
+                 xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;*/
+            }
+        </script>
+
+        <script>
+            function getWeather() {
+                //https://opendata.fmi.fi/wfs/fin?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::timevaluepair&place=Vihre%C3%A4saari&parameters=ws_10min,t2m&timestep=600
+                let d = new Date();
+                d.setMinutes(d.getMinutes() - 1);
+                var ut = d.toISOString(); // 2021-09-18T16:48:30.092Z
+                var u = 'https://opendata.fmi.fi/wfs/fin?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::timevaluepair&place=Vihre%C3%A4saari&parameters=ws_10min,t2m&starttime=' + ut;
+                let xml = getXml(u);
+            }
+            console.log(getWeather());
         </script>
     </body>
 </html>
