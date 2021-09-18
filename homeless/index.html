@@ -6,10 +6,10 @@
         }
 
         .clock {
-            position: absolute;
+            /*position: absolute;
             top: 20%;
             left: 50%;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);*/
             color: #000000;
             font-size: 300px;
             font-family: Orbitron;
@@ -21,9 +21,35 @@
         <!--button onclick="openFullscreen();">Open fullscreen</button>-->
         <div style="display: block;" id="MyClockDisplay" class="clock" onload="showTime()"></div>
 
-        <canvas style="display: none;" id="canvas" width="800" height="800">
+        <canvas style="display: none; float: left;" id="canvas" width="800" height="800">
         </canvas>
 
+        <div style="display: block; font-size: 150px; color: orange;" id="alarm" onload="">60</div>
+
+        <script>
+            var alarmtime = 0;
+            var alarmelem = 0;
+            function addAlarm(time) {
+                alarmelem = document.getElementById("alarm");
+                alarmelem.style.color = 'red';
+                alarmtime = time;
+                setTimeout(alarmTick, 0);
+            }
+            function alarmTick() {
+                alarmtime--;
+                alarmelem.innerHTML = alarmtime;
+                if (alarmtime === 0) {
+                    alarm();
+                    return;
+                }
+                setTimeout(alarmTick, 1000);
+            }
+            function alarm() {
+                alarmelem.style.color = 'gray';
+                alarmelem.innerHTML = '60';
+                beep();
+            }
+        </script>
         <script>
             function showTime() {
                 var date = new Date();
@@ -195,17 +221,28 @@
                 var redDiv = document.getElementsByTagName("BODY")[0];
                 //console.log(redDiv)
                 redDiv.onclick = function (e) {
+                    var ev = e || window.event;
+                    //console.log(e.target, this)
+                    if (e.target === document.getElementById("alarm")) {
+                        addAlarm(60);
+                    } else {
+                        toggleClock();
+                    }
+                    /*if (e.target !== this)
+                     return;*/
+                    //console.log('red div was clicked');
                     if (!fullscreen) {
                         fullscreen = true;
                         openFullscreen();
+                        //beep();
+
                     }
-                    toggleClock();
-                    var ev = e || window.event;
-                    //alert(ev)
-                    if (e.target !== this)
-                        return;
-                    //console.log('red div was clicked');
                 }
+            }
+
+            function beep() {
+                var snd = new Audio("https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3");
+                snd.play();
             }
         </script>
     </body>
