@@ -21,7 +21,7 @@
         <!--button onclick="openFullscreen();">Open fullscreen</button>-->
         <div style="display: block;" id="MyClockDisplay" class="clock" onload="showTime()"></div>
 
-        <canvas style="display: none;" id="canvas" width="400" height="400">
+        <canvas style="display: none;" id="canvas" width="800" height="800">
         </canvas>
 
         <script>
@@ -51,19 +51,6 @@
             }
         </script>
 
-        <script>
-            var elem = document.getElementsByTagName("BODY")[0];
-            ;
-            function openFullscreen() {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                }
-            }
-        </script>
 
         <script>
             var canvas = document.getElementById("canvas");
@@ -152,6 +139,32 @@
         </script>        
 
         <script>
+            /* Get the documentElement (<html>) to display the page in fullscreen */
+            var elem = document.documentElement;
+
+            /* View in fullscreen */
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            /* Close fullscreen */
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        </script>
+        <script>
             var digital = true;
             function showTimeSelect() {
                 if (digital) {
@@ -165,7 +178,7 @@
 
             function toggleClock() {
                 if (digital) {
-                    console.log(document.getElementById("MyClockDisplay").style.display)
+                    //console.log(document.getElementById("MyClockDisplay").style.display)
                     document.getElementById("MyClockDisplay").style.display = 'none';
                     document.getElementById("canvas").style.display = 'block';
                 } else {
@@ -184,7 +197,7 @@
                 redDiv.onclick = function (e) {
                     if (!fullscreen) {
                         fullscreen = true;
-                        //openFullscreen();
+                        openFullscreen();
                     }
                     toggleClock();
                     var ev = e || window.event;
