@@ -1,113 +1,199 @@
 <!DOCTYPE html>
 <html>
-    <body style="background-color:#ccc">
+    <style>
+        body {
+            background: white;
+        }
 
-        <button onclick="openFullscreen();">Open fullscreen</button>
-    <center>
-        <canvas id="canvas" width="400" height="400"
-                style="background-color:#ccc">
+        .clock {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: #000000;
+            font-size: 300px;
+            font-family: Orbitron;
+            letter-spacing: 7px;
+        }
+    </style>
+    <body>
+
+        <!--button onclick="openFullscreen();">Open fullscreen</button>-->
+        <div style="display: block;" id="MyClockDisplay" class="clock" onload="showTime()"></div>
+
+        <canvas style="display: none;" id="canvas" width="400" height="400">
         </canvas>
-    </center>
 
-    <script>
-        var elem = document.getElementById("canvas");
-        function openFullscreen() {
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) { /* Safari */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
-                elem.msRequestFullscreen();
+        <script>
+            function showTime() {
+                var date = new Date();
+                var h = date.getHours(); // 0 - 23
+                var m = date.getMinutes(); // 0 - 59
+                var s = date.getSeconds(); // 0 - 59
+                /*var session = "AM";
+                 
+                 if (h == 0) {
+                 h = 12;
+                 }
+                 
+                 if (h > 12) {
+                 h = h - 12;
+                 session = "PM";
+                 }*/
+
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+
+                var time = h + ":" + m + ":" + s;
+                document.getElementById("MyClockDisplay").innerText = time;
+                document.getElementById("MyClockDisplay").textContent = time;
             }
-        }
-    </script>
+        </script>
 
-    <script>
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
-        var radius = canvas.height / 2;
-        ctx.translate(radius, radius);
-        radius = radius * 0.90
-        setInterval(drawClock, 1000);
-
-        function drawClock() {
-            drawFace(ctx, radius);
-            drawNumbers(ctx, radius);
-            drawTime(ctx, radius);
-        }
-
-
-        function drawFace(ctx, radius) {
-            var grad;
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-            ctx.fillStyle = 'white';
-            ctx.fill();
-            grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
-            grad.addColorStop(0, '#333');
-            grad.addColorStop(0.5, 'white');
-            grad.addColorStop(1, '#333');
-            ctx.strokeStyle = grad;
-            ctx.lineWidth = radius * 0.1;
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
-            ctx.fillStyle = '#333';
-            ctx.fill();
-        }
-
-
-        function drawNumbers(ctx, radius) {
-            var ang;
-            var num;
-            ctx.font = radius * 0.15 + "px arial";
-            ctx.textBaseline = "middle";
-            ctx.textAlign = "center";
-            for (num = 1; num < 13; num++) {
-                ang = num * Math.PI / 6;
-                ctx.rotate(ang);
-                ctx.translate(0, -radius * 0.85);
-                ctx.rotate(-ang);
-                ctx.fillText(num.toString(), 0, 0);
-                ctx.rotate(ang);
-                ctx.translate(0, radius * 0.85);
-                ctx.rotate(-ang);
+        <script>
+            var elem = document.getElementsByTagName("BODY")[0];
+            ;
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
             }
-        }
+        </script>
+
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+            radius = radius * 0.90
+
+            function drawClock() {
+                drawFace(ctx, radius);
+                drawNumbers(ctx, radius);
+                drawTime(ctx, radius);
+            }
 
 
-        function drawTime(ctx, radius) {
-            var now = new Date();
-            var hour = now.getHours();
-            var minute = now.getMinutes();
-            var second = now.getSeconds();
-            //hour
-            hour = hour % 12;
-            hour = (hour * Math.PI / 6) +
-                    (minute * Math.PI / (6 * 60)) +
-                    (second * Math.PI / (360 * 60));
-            drawHand(ctx, hour, radius * 0.5, radius * 0.07);
-            //minute
-            minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
-            drawHand(ctx, minute, radius * 0.8, radius * 0.07);
-            // second
-            second = (second * Math.PI / 30);
-            drawHand(ctx, second, radius * 0.9, radius * 0.02);
-        }
+            function drawFace(ctx, radius) {
+                var grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+                grad.addColorStop(0, '#333');
+                grad.addColorStop(0.5, 'white');
+                grad.addColorStop(1, '#333');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = radius * 0.1;
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+                ctx.fillStyle = '#333';
+                ctx.fill();
+            }
 
 
-        function drawHand(ctx, pos, length, width) {
-            ctx.beginPath();
-            ctx.lineWidth = width;
-            ctx.lineCap = "round";
-            ctx.moveTo(0, 0);
-            ctx.rotate(pos);
-            ctx.lineTo(0, -length);
-            ctx.stroke();
-            ctx.rotate(-pos);
-        }
+            function drawNumbers(ctx, radius) {
+                var ang;
+                var num;
+                ctx.font = radius * 0.15 + "px arial";
+                ctx.textBaseline = "middle";
+                ctx.textAlign = "center";
+                for (num = 1; num < 13; num++) {
+                    ang = num * Math.PI / 6;
+                    ctx.rotate(ang);
+                    ctx.translate(0, -radius * 0.85);
+                    ctx.rotate(-ang);
+                    ctx.fillText(num.toString(), 0, 0);
+                    ctx.rotate(ang);
+                    ctx.translate(0, radius * 0.85);
+                    ctx.rotate(-ang);
+                }
+            }
 
-    </script>
 
-</body>
+            function drawTime(ctx, radius) {
+                var now = new Date();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+                var second = now.getSeconds();
+                //hour
+                hour = hour % 12;
+                hour = (hour * Math.PI / 6) +
+                        (minute * Math.PI / (6 * 60)) +
+                        (second * Math.PI / (360 * 60));
+                drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+                //minute
+                minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+                drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+                // second
+                second = (second * Math.PI / 30);
+                drawHand(ctx, second, radius * 0.9, radius * 0.02);
+            }
+
+
+            function drawHand(ctx, pos, length, width) {
+                ctx.beginPath();
+                ctx.lineWidth = width;
+                ctx.lineCap = "round";
+                ctx.moveTo(0, 0);
+                ctx.rotate(pos);
+                ctx.lineTo(0, -length);
+                ctx.stroke();
+                ctx.rotate(-pos);
+            }
+
+        </script>        
+
+        <script>
+            var digital = true;
+            function showTimeSelect() {
+                if (digital) {
+                    showTime();
+                } else {
+                    drawClock();
+                }
+                setTimeout(showTimeSelect, 1000);
+            }
+            showTimeSelect();
+
+            function toggleClock() {
+                if (digital) {
+                    console.log(document.getElementById("MyClockDisplay").style.display)
+                    document.getElementById("MyClockDisplay").style.display = 'none';
+                    document.getElementById("canvas").style.display = 'block';
+                } else {
+                    document.getElementById("MyClockDisplay").style.display = 'block';
+                    document.getElementById("canvas").style.display = 'none';
+                }
+                digital = digital ? false : true;
+                //alert(digital)
+            }
+
+            var fullscreen = false;
+            window.onload = function ()
+            {
+                var redDiv = document.getElementsByTagName("BODY")[0];
+                //console.log(redDiv)
+                redDiv.onclick = function (e) {
+                    if (!fullscreen) {
+                        fullscreen = true;
+                        //openFullscreen();
+                    }
+                    toggleClock();
+                    var ev = e || window.event;
+                    //alert(ev)
+                    if (e.target !== this)
+                        return;
+                    //console.log('red div was clicked');
+                }
+            }
+        </script>
+    </body>
 </html>
