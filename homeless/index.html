@@ -20,8 +20,13 @@
             .alarm {
                 /*float: left;*/
                 display: inline;
-                margin: 50px;
-                color: gray;
+                margin: 0 50px;
+                font-size: 150px;
+            }
+            .weather {
+                /*float: left;*/
+                display: inline;
+                margin: 0 100px;
                 font-size: 150px;
             }
         </style>
@@ -59,43 +64,52 @@
         <canvas style="display: none; float: left;" id="canvas" width="800" height="800">
         </canvas>
 
+        <!--<div id='weather-time' style="text-align: center; color: gray; font-size: 50px;"></div>-->
+        <div id="weather" style="text-align: center;">
+            <div class="weather" id="temp">-</div>
+            <div class="weather" id="wind">-</div>
+        </div>
+
+        <div style="text-align: center; font-size: 25px; margin-top: 30px;">ALARM</div>
         <div id="alarms" style="text-align: center;">
             <div class="alarm">2</div>
-            <div class="alarm">10</div>
+            <div class="alarm">7</div>
             <div class="alarm">25</div>
             <div class="alarm">45</div>
-            <div class="alarm">60</div>
         </div>
         <div id="alarmActive" style="display: none; color: white; font-size: 150px; text-align: center;">
         </div>
 
+
         <script>
             var alarmtime = 0;
             var alarmelem = 0;
+            var alarmtimeout = null;
             function addAlarm(e) {
                 alarmelem = e;
                 //alarmelem.style.color = 'red';
                 alarmtime = parseInt(e.innerText) * 60;
-                setTimeout(alarmTick, 0);
+                alarmtimeout = setTimeout(alarmTick, 0);
                 alarms.style.display = 'none';
                 alarmActive.innerHTML = '';
                 alarmActive.style.display = 'block';
             }
             function alarmTick() {
+                //console.log(alarmtimeout)
                 alarmtime--;
                 if (alarmtime <= 0) {
                     alarm();
                     return;
                 }
                 alarmActive.innerHTML = parseInt(alarmtime / 60) + ':' + alarmtime % 60;
-                setTimeout(alarmTick, 1000);
+                alarmtimeout = setTimeout(alarmTick, 1000);
                 //body.style.backgroundColor = 'red';
             }
             function alarm() {
                 //alarmelem.style.color = 'gray';
                 //alarmelem.innerHTML = '2 min';
                 beep();
-                alarmActive.innerHTML = 'HOPI-HOPI';
+                alarmActive.innerHTML = 'HOPI HOPI';
                 //alarms.style.display = 'block';
                 //alarmActive.style.display = 'none';
                 //body.style.backgroundColor = 'black';
@@ -140,20 +154,27 @@
                 s = (s < 10) ? "0" + s : s;
 
                 let e = document.getElementById("MyClockDisplay");
+                //let weather = document.getElementById("weather");
                 var time = h + ":" + m + ":" + s;
                 if (h !== prevH) {
                     prevH = h;
                     let color = getColor();
                     if (color === 'white') {
-                        e.style.color = 'black';
+                        //e.style.color = 'black';
+                        //weather.style.color = 'black';
+                        body.style.color = 'black';
                         body.style.backgroundColor = 'white';
                         //alarms.style.display = 'none';
                     } else {
+                        body.style.color = color;
                         e.style.color = color;
+                        //weather.style.color = color;
                         body.style.backgroundColor = 'black';
                         //alarms.style.display = 'block';
                     }
                 }
+                //let e = document.getElementById("MyClockDisplay");
+                //console.log(e.style)
                 e.innerText = time;
                 //e.textContent = time;
             }
@@ -312,6 +333,10 @@
                     if (e.target === alarmActive) {
                         alarms.style.display = 'block';
                         alarmActive.style.display = 'none';
+                        if (alarmtimeout) {
+                            clearTimeout(alarmtimeout);
+                            alarmtimeout = null;
+                        }
                         return;
                     }
                     let arr = document.getElementsByClassName("alarm");
@@ -343,6 +368,7 @@
         </script>
         <script>
             function getXml(u) {
+                console.log(u);
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -356,14 +382,66 @@
             function myFunction(xml) {
                 var xmlDoc = xml.responseXML;
                 let text = xml.responseText;
-                const parser = new DOMParser();
-                const xmlDOM = parser.parseFromString(text, "text/xml");
+                let p = text.indexOf('obs-obs-1-1-t2m');
+                //console.log(text)
+                let t;
+                if (p > 0) {
+                    p = text.indexOf('<wml2:value>', p);
+                    if (p > 0) {
+                        p += '<wml2:value>'.length;
+                        t = parseInt(text.substr(p));
+                        let plus = t >= 0 ? '+' : '';
+                        document.getElementById("temp").innerHTML = plus + t + '&#xb0;C'; // + (t >= 0) ? '+' : '';
+                        //console.log(t)
+                    }
+                    //console.log(text.substr(p))
+                }
+                p = text.indexOf('obs-obs-1-1-ws_10min');
+                if (p > 0) {
+                    p = text.indexOf('<wml2:value>', p);
+                    if (p > 0) {
+                        p += '<wml2:value>'.length;
+                        let w = parseInt(text.substr(p));
+                        //console.log(w)
+                        //console.log(document.getElementById("temp"))
+                        p = text.indexOf('obs-obs-1-1-wd_10min');
+                        if (p > 0) {
+                            p = text.indexOf('<wml2:time>', p);
+                            if (p > 0) {
+                                p += '<wml2:time>'.length;
+                                let time = new Date(Date.parse(text.substr(p, 20))); // 2019-01-01T00:00:00.000Z
+                                let d = time.getHours() + ':' + time.getMinutes();
+                                let old = (new Date() - time);
+                                if (old /1000 > 600) {
+                                    console.log(old /1000)
+                                    document.getElementById("weather").style.color = 'gray';
+                                } else {
+                                    //document.getElementById("weather").style.color = 'gray';
+                                }
+                                //document.getElementById("weather-time").innerHTML = date;
+                                if (p > 0) {
+                                    p = text.indexOf('<wml2:value>', p);
+                                    if (p > 0) {
+                                        p += '<wml2:value>'.length;
+                                        let wd = parseInt(text.substr(p));
+                                        document.getElementById("wind").innerHTML = w + '/' + wd + '&#xb0;';
+                                    }
+                                }
+                            }
+                        }
+
+                        //return {t: t, w: w};
+                    }
+                }
+                //return null;
+                //const parser = new DOMParser();
+                //const xmlDOM = parser.parseFromString(text, "text/xml");
                 //const value = xmlDOM.getElementsByTagName("target:member");
                 //$("[nodeName=aws:year]").attr('number')
-                let s = $("gml\:id").attr('obs-obs-1-1-t2m');
-                
+                //let s = $("gml\:id").attr('obs-obs-1-1-t2m');
+
 //                let ns = xmlDoc.getElementsByTagNameNS("http://www.opengis.net/wfs/2.0", 'wfs')
-                console.log(s)
+                //console.log(s)
                 //var x = xmlDoc.getElementsByTagName('wfs:member')
                 //console.log(x)
                 //var a = xmlDoc.getElementById("time1-1-1");
@@ -377,7 +455,7 @@
                  "http://www.opengis.net/gml", "id" ) [0];
                  
                  console.log(location)*/
-                return xmlDoc.getElementById("obs-obs-1-1-ws_10min");
+                //return xmlDoc.getElementById("obs-obs-1-1-ws_10min");
                 /*document.getElementById("demo").innerHTML =
                  xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;*/
             }
@@ -387,12 +465,19 @@
             function getWeather() {
                 //https://opendata.fmi.fi/wfs/fin?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::timevaluepair&place=Vihre%C3%A4saari&parameters=ws_10min,t2m&timestep=600
                 let d = new Date();
-                d.setMinutes(d.getMinutes() - 1);
+                d.setMinutes(d.getMinutes() - 3);
                 var ut = d.toISOString(); // 2021-09-18T16:48:30.092Z
-                var u = 'https://opendata.fmi.fi/wfs/fin?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::timevaluepair&place=Vihre%C3%A4saari&parameters=ws_10min,t2m&starttime=' + ut;
-                let xml = getXml(u);
+                var u = 'https://opendata.fmi.fi/wfs/fin?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::timevaluepair&place=Vihre%C3%A4saari&parameters=ws_10min,wd_10min,t2m&starttime=' + ut;
+                getXml(u);
+                let h = d.getHours();
+                if (h >= 6 && h <= 18) {
+                    setTimeout(getWeather, 15 * 60 * 1000)
+                } else {
+                    setTimeout(getWeather, 60 * 60 * 1000)
+                }
+                //console.log(meas);
             }
-            console.log(getWeather());
+            setTimeout(getWeather(), 0);
         </script>
     </body>
 </html>
