@@ -30,7 +30,7 @@
                 font-size: 150px;
             }
         </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!----<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     </head>
     <body>
 
@@ -77,7 +77,7 @@
             <div class="alarm">25</div>
             <div class="alarm">45</div>
         </div>
-        <div id="alarmActive" style="display: none; color: white; font-size: 150px; text-align: center;">
+        <div id="alarmActive" style="background-color: white; color: black; display: none; font-size: 150px; text-align: center;">
         </div>
 
 
@@ -101,7 +101,12 @@
                     alarm();
                     return;
                 }
-                alarmActive.innerHTML = parseInt(alarmtime / 60) + ':' + alarmtime % 60;
+                
+                let m = parseInt(alarmtime / 60);
+                m = (m < 10) ? "0" + m : m;
+                let s = alarmtime % 60;
+                s = (s < 10) ? "0" + s : s;
+                alarmActive.innerHTML = m + ':' + s;
                 alarmtimeout = setTimeout(alarmTick, 1000);
                 //body.style.backgroundColor = 'red';
             }
