@@ -21,14 +21,12 @@
             .alarm {
                 /*float: left;*/
                 display: inline;
-                margin: 0 50px;
-                font-size: 150px;
+                margin: 0 25px;
             }
             .weather {
                 /*float: left;*/
                 display: inline;
                 margin: 0 100px;
-                font-size: 150px;
             }
         </style>
         <!----<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
@@ -65,22 +63,24 @@
         <canvas style="display: none; float: left;" id="canvas" width="800" height="800">
         </canvas>
 
-        <!--<div id='weather-time' style="text-align: center; color: gray; font-size: 50px;"></div>-->
-        <div id="weather" style="text-align: center;">
-            <div class="weather" id="temp">-</div>
-            <div class="weather" id="wind">-</div>
-        </div>
+        <div id="side" style="float:left; text-align: center; font-size: 150px;">
+            <!--<div id='weather-time' style="text-align: center; color: gray; font-size: 50px;"></div>-->
+            <div id="weather" style="text-align: center;">
+                <div class="weather" id="temp">-</div>
+                <div class="weather" id="wind">-</div>
+            </div>
 
-        <div style="text-align: center; font-size: 25px; margin-top: 30px;">ALARM</div>
-        <div id="alarms" style="text-align: center;">
-            <div class="alarm">2</div>
-            <div class="alarm">7</div>
-            <div class="alarm">25</div>
-            <div class="alarm">45</div>
+            <div id="alarms" style="  opacity: 0.5;text-align: center; min-height: 150px; font-size: 75px;">
+                <div style="text-align: center; font-size: 25px; margin-top: 30px;">ALARM</div>
+                <div class="alarm">2</div>
+                <div class="alarm">10</div>
+                <div class="alarm">20</div>
+                <div class="alarm">45</div>
+                <div class="alarm">60</div>
+            </div>
+            <div id="alarmActive" style="background-color: white; color: black; display: none; font-size: 150px; text-align: center;">
+            </div>
         </div>
-        <div id="alarmActive" style="background-color: white; color: black; display: none; font-size: 150px; text-align: center;">
-        </div>
-
 
         <script>
             var alarmtime = 0;
@@ -102,7 +102,7 @@
                     alarm();
                     return;
                 }
-                
+
                 let m = parseInt(alarmtime / 60);
                 m = (m < 10) ? "0" + m : m;
                 let s = alarmtime % 60;
@@ -116,7 +116,7 @@
                 //alarmelem.innerHTML = '2 min';
                 beep();
                 alarmActive.innerHTML = 'HOPI HOPI';
-                alarmtimeout = setTimeout(alarm, 10*1000);
+                alarmtimeout = setTimeout(alarm, 10 * 1000);
                 //alarms.style.display = 'block';
                 //alarmActive.style.display = 'none';
                 //body.style.backgroundColor = 'black';
@@ -156,6 +156,11 @@
                  session = "PM";
                  }*/
 
+                setBg(h);
+                if (h > 12) {
+                    h = h - 12;
+                    session = "PM";
+                }
                 h = (h < 10) ? "0" + h : h;
                 m = (m < 10) ? "0" + m : m;
                 s = (s < 10) ? "0" + s : s;
@@ -163,6 +168,14 @@
                 let e = document.getElementById("MyClockDisplay");
                 //let weather = document.getElementById("weather");
                 var time = h + ":" + m + ":" + s;
+
+                //let e = document.getElementById("MyClockDisplay");
+                //console.log(e.style)
+                e.innerText = time;
+                //e.textContent = time;
+            }
+
+            function setBg(h) {
                 if (h !== prevH) {
                     prevH = h;
                     let color = getColor();
@@ -174,16 +187,13 @@
                         //alarms.style.display = 'none';
                     } else {
                         body.style.color = color;
+                        let e = document.getElementById("MyClockDisplay");
                         e.style.color = color;
                         //weather.style.color = color;
                         body.style.backgroundColor = 'black';
                         //alarms.style.display = 'block';
                     }
                 }
-                //let e = document.getElementById("MyClockDisplay");
-                //console.log(e.style)
-                e.innerText = time;
-                //e.textContent = time;
             }
         </script>
 
@@ -193,7 +203,7 @@
             var ctx = canvas.getContext("2d");
             var radius = canvas.height / 2;
             ctx.translate(radius, radius);
-            radius = radius * 0.90
+            radius = radius * 0.75
 
             function drawClock() {
                 drawFace(ctx, radius);
@@ -206,11 +216,12 @@
                 var grad;
                 ctx.beginPath();
                 ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-                ctx.fillStyle = 'white';
+                let color = getColor();
+                ctx.fillStyle = (color === 'white') ? 'black' : color;
                 ctx.fill();
                 grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
                 grad.addColorStop(0, '#333');
-                grad.addColorStop(0.5, 'white');
+                grad.addColorStop(0.5, (color === 'white') ? 'black' : color);
                 grad.addColorStop(1, '#333');
                 ctx.strokeStyle = grad;
                 ctx.lineWidth = radius * 0.1;
@@ -247,6 +258,7 @@
                 var minute = now.getMinutes();
                 var second = now.getSeconds();
                 //hour
+                setBg(hour);
                 hour = hour % 12;
                 hour = (hour * Math.PI / 6) +
                         (minute * Math.PI / (6 * 60)) +
@@ -258,6 +270,7 @@
                 // second
                 second = (second * Math.PI / 30);
                 drawHand(ctx, second, radius * 0.9, radius * 0.02);
+
             }
 
 
@@ -302,6 +315,20 @@
         </script>
         <script>
             var digital = true;
+
+            function setDigital(digital) {
+                if (digital) {
+                    document.getElementById("side").style.fontSize = '150px';
+                    document.getElementById("side").style.float = 'none';
+                } else {
+                    document.getElementById("side").style.fontSize = '150px';
+                    document.getElementById("side").style.float = 'none';
+                }
+                toggleClock(digital);
+
+            }
+            setDigital(false);
+
             function showTimeSelect() {
                 date = new Date();
                 if (digital) {
@@ -312,16 +339,19 @@
                 setTimeout(showTimeSelect, 1000);
             }
 
-            function toggleClock() {
-                if (digital) {
-                    //console.log(document.getElementById("MyClockDisplay").style.display)
-                    document.getElementById("MyClockDisplay").style.display = 'none';
-                    document.getElementById("canvas").style.display = 'block';
+            function toggleClock(set) {
+                if (set) {
+                    digital = set;
                 } else {
+                    digital = digital ? false : true;
+                }
+                if (digital) {
                     document.getElementById("MyClockDisplay").style.display = 'block';
                     document.getElementById("canvas").style.display = 'none';
+                } else {
+                    document.getElementById("MyClockDisplay").style.display = 'none';
+                    document.getElementById("canvas").style.display = 'block';
                 }
-                digital = digital ? false : true;
                 //alert(digital)
             }
 
@@ -419,8 +449,8 @@
                                 let time = new Date(Date.parse(text.substr(p, 20))); // 2019-01-01T00:00:00.000Z
                                 let d = time.getHours() + ':' + time.getMinutes();
                                 let old = (new Date() - time);
-                                if (old /1000 > 600) {
-                                    console.log(old /1000)
+                                if (old / 1000 > 600) {
+                                    console.log(old / 1000)
                                     document.getElementById("weather").style.color = 'gray';
                                 } else {
                                     //document.getElementById("weather").style.color = 'gray';
