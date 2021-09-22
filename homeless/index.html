@@ -19,9 +19,10 @@
                 text-align: center;
             }
             .alarm {
-                /*float: left;*/
-                display: inline;
-                margin: 0 25px;
+                float: left;
+                padding: 0.75em;
+                margin: 0.25em;
+                color: black;
             }
             .weather {
                 /*float: left;*/
@@ -35,6 +36,7 @@
 
         <script>
             var body, alarms, prevH = -1;
+            var alarmNum1 = -1, alarmNumElem, alarmNumColor;
             var profiles = {
                 color: ['white', '#ff0', '#0ff', '#f0f'],
                 timeStart: 0,
@@ -60,7 +62,7 @@
 
         <div style="display: block;" id="MyClockDisplay" class="clock" onload="showTime()"></div>
 
-        <canvas style="display: none; float: left;" id="canvas" width="800" height="800">
+        <canvas style="display: none; float: left;" id="canvas" width="600" height="600">
         </canvas>
 
         <div id="side" style="float:left; text-align: center; font-size: 150px;">
@@ -70,13 +72,18 @@
                 <div class="weather" id="wind">-</div>
             </div>
 
-            <div id="alarms" style="  opacity: 0.5;text-align: center; min-height: 150px; font-size: 50px;">
+            <div id="alarms" style="opacity: 0.5;text-align: center; min-height: 150px; font-size: 50px;">
                 <div style="text-align: center; font-size: 25px; margin-top: 30px;">ALARM</div>
+                <div class="alarm">1</div>
                 <div class="alarm">2</div>
-                <div class="alarm">10</div>
-                <div class="alarm">20</div>
-                <div class="alarm">45</div>
-                <div class="alarm">60</div>
+                <div class="alarm">3</div>
+                <div class="alarm">4</div>
+                <div class="alarm">5</div>
+                <div class="alarm">6</div>
+                <div class="alarm">7</div>
+                <div class="alarm">8</div>
+                <div class="alarm">9</div>
+                <div class="alarm">0</div>
             </div>
             <div id="alarmActive" style="background-color: white; color: black; display: none; font-size: 150px; text-align: center;">
             </div>
@@ -84,12 +91,9 @@
 
         <script>
             var alarmtime = 0;
-            var alarmelem = 0;
             var alarmtimeout = null;
-            function addAlarm(e) {
-                alarmelem = e;
-                //alarmelem.style.color = 'red';
-                alarmtime = parseInt(e.innerText) * 60;
+            function addAlarm(time) {
+                alarmtime = time * 60;
                 alarmtimeout = setTimeout(alarmTick, 0);
                 alarms.style.display = 'none';
                 alarmActive.innerHTML = '';
@@ -113,8 +117,6 @@
                 //body.style.backgroundColor = 'red';
             }
             function alarm() {
-                //alarmelem.style.color = 'gray';
-                //alarmelem.innerHTML = '2 min';
                 beep();
                 alarmActive.innerHTML = 'HOPI HOPI';
                 alarmtimeout = setTimeout(alarm, 10 * 1000);
@@ -184,6 +186,7 @@
                 if (h !== prevH) {
                     prevH = h;
                     let color = getColor();
+                    //console.log(as)
                     if (color === 'white') {
                         //e.style.color = 'black';
                         //weather.style.color = 'black';
@@ -198,6 +201,10 @@
                         body.style.backgroundColor = 'black';
                         //alarms.style.display = 'block';
                     }
+                    let arr = document.getElementsByClassName("alarm");
+                    for (let elem of arr) {
+                        elem.style.backgroundColor = body.style.color;
+                    }
                 }
             }
         </script>
@@ -206,9 +213,9 @@
         <script>
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
-            var radius = canvas.height / 2;
+            var radius = canvas.height /2;
             ctx.translate(radius, radius);
-            radius = radius * 0.75
+            radius = radius * 0.9
 
             function drawClock() {
                 drawFace(ctx, radius);
@@ -298,6 +305,7 @@
 
             /* View in fullscreen */
             function openFullscreen() {
+                return;
                 if (elem.requestFullscreen) {
                     elem.requestFullscreen();
                 } else if (elem.webkitRequestFullscreen) { /* Safari */
@@ -332,7 +340,7 @@
                 toggleClock(digital);
 
             }
-            setDigital(false);
+            setDigital(true);
 
             function showTimeSelect() {
                 date = new Date();
@@ -383,13 +391,26 @@
                     }
                     let arr = document.getElementsByClassName("alarm");
                     for (let i = 0; i < arr.length; i++) {
-                        //console.log(e.target, arr[i])
                         if (e.target === arr[i]) {
-                            addAlarm(arr[i]);
-                            return;
+                            if (alarmNum1 === -1) {
+                                alarmNumElem = arr[i];
+                                alarmNumColor = alarmNumElem.style.backgroundColor;
+                                alarmNumElem.style.backgroundColor = 'white';
+                                alarmNum1 = parseInt(arr[i].innerText);
+                                break;
+                            } else {
+                                addAlarm(10*alarmNum1 + parseInt(arr[i].innerText));
+                                alarmNum1 = -1;
+                                alarmNumElem.style.backgroundColor = alarmNumColor;
+                                return;
+                            }
                         }
                     }
-                    toggleClock();
+                    //console.log(e.target)
+                    if (e.target === document.getElementById("MyClockDisplay")||
+                            e.target === document.getElementById("canvas")) {
+                        toggleClock();
+                    }
                     /*if (e.target !== this)
                      return;*/
                     //console.log('red div was clicked');
