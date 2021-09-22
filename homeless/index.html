@@ -20,9 +20,10 @@
             }
             .alarm {
                 display: inline-block;
-                padding: 0.75em;
+                padding: 0.55em;
                 margin: 0.15em;
                 color: black;
+                border-style: solid;
             }
             .weather {
                 /*float: left;*/
@@ -205,7 +206,8 @@
                     }
                     let arr = document.getElementsByClassName("alarm");
                     for (let elem of arr) {
-                        elem.style.backgroundColor = body.style.color;
+                        //elem.style.borderColor  = body.style.color;
+                        elem.style.backgroundColor  = body.style.color;
                     }
                 }
             }
@@ -407,7 +409,7 @@
                             }
                         }
                     }
-                    console.log(e.target)
+                    //console.log(e.target)
                     if (e.target === document.getElementById("MyClockDisplay") ||
                             e.target === document.getElementById("canvas")) {
                         toggleClock();
@@ -417,7 +419,7 @@
                     //console.log('red div was clicked');
                     if (!fullscreen) {
                         fullscreen = true;
-                        //openFullscreen();
+                        openFullscreen();
                         //beep();
 
                     }
