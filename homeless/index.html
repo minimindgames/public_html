@@ -27,7 +27,7 @@
             }
             .weather {
                 /*float: left;*/
-                display: inline;
+                display: inline-block;
                 margin: 0 100px;
             }
         </style>
@@ -133,28 +133,6 @@
                 var h = date.getHours(); // 0 - 23
                 var m = date.getMinutes(); // 0 - 59
                 var s = date.getSeconds(); // 0 - 59
-                if (h === 20 && m === 29 && s === 30) {
-                    beep();
-                }
-                let day = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][date.getDay()];
-                if (day === 'sun' || day === 'sat') {
-                } else {
-                    if (day === 'tue') {
-                        if (h === 8 && m === 5 && s === 0) {
-                            setTimeout(alarm, 0);
-                        }
-                        if (h === 8 && m === 45 && s === 0) {
-                            setTimeout(alarm, 0);
-                        }
-                    } else {
-                        if (h === 7 && m === 15 && s === 0) {
-                            setTimeout(alarm, 0);
-                        }
-                        if (h === 7 && m === 55 && s === 0) {
-                            setTimeout(alarm, 0);
-                        }
-                    }
-                }
                 /*var session = "AM";
                  
                  if (h == 0) {
@@ -194,6 +172,7 @@
                         //e.style.color = 'black';
                         //weather.style.color = 'black';
                         body.style.color = 'black';
+                        document.getElementById("MyClockDisplay").style.color = 'black';
                         body.style.backgroundColor = 'white';
                         //alarms.style.display = 'none';
                     } else {
@@ -207,7 +186,7 @@
                     let arr = document.getElementsByClassName("alarm");
                     for (let elem of arr) {
                         //elem.style.borderColor  = body.style.color;
-                        elem.style.backgroundColor  = body.style.color;
+                        elem.style.backgroundColor = body.style.color;
                     }
                 }
             }
@@ -352,6 +331,36 @@
                 } else {
                     drawClock();
                 }
+                
+                var h = date.getHours(); // 0 - 23
+                var m = date.getMinutes(); // 0 - 59
+                var s = date.getSeconds(); // 0 - 59
+                if (h === 20 && m === 29 && s === 0) {
+                    beep();
+                }
+                let day = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][date.getDay()];
+                if (day === 'sun' || day === 'sat') {
+                } else {
+                    if (day === 'tue') {
+                        if (h === 8 && m === 5 && s === 0) {
+                            //setTimeout(alarm, 0);
+                            addAlarm(0);
+                        }
+                        if (h === 8 && m === 45 && s === 0) {
+                            //setTimeout(alarm, 0);
+                            addAlarm(0);
+                        }
+                    } else {
+                        if (h === 7 && m === 15 && s === 0) {
+                            //setTimeout(alarm, 0);
+                            addAlarm(0);
+                        }
+                        if (h === 7 && m === 55 && s === 0) {
+                            addAlarm(0);
+                        }
+                    }
+                }
+
                 setTimeout(showTimeSelect, 1000);
             }
 
