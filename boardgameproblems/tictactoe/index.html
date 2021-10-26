@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, minimal-ui=1, shrink-to-fit=no">
+        <title></title>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" href="../webapp.css">
+    </head>
+    <body>
+        <div id="canvas"></div>
+        
+        <div id="loader"></div>
+
+        <div class="popup" id="guide">
+            <div class="back" onclick="backToGame();">BACK</div>
+            <div class="title">
+                <h1>Tic Tac Toe problem</h1>
+                <p class="slogan">Tic Tac Toe has six strategy levels.</p>
+            </div>
+            <div class="popup-container">
+                <p>The goal of Tic Tac Toe problem is to beat the hardest Tic Tac Toe strategy.</p>
+                <h2>How to play</h2>
+                <p>Win a game to raise a level and lose a game to drop a level - then keep playing to raise again.</p>
+                <p>Each game level corresponds to computer's strategy, that is, how many moves ahead computer plans. In order to win you obviously need to plan one move further.</p>
+                <p>At the sixth level, computer's strategy is perfect so the game is always a draw if you play without mistakes too.</p>
+                <h2>Tic Tac Toe rules</h2>
+                <p>Tic Tac Toe is a turn-based board game for two players, X and O. The game board is a 3x3 grid of squares, where the players alternatively mark one square. Winner is the first player to get a horizontal, vertical or diagonal row of three squares.</p>
+                <p>Please find more at <a href="https://minimindgames.com/en/tic-tac-toe-online-game/?app=1">how to win Tic Tac Toe</a>.</p>
+            </div>
+        </div>
+
+        <div class="popup" id="guide-lose">
+            <div class="back" onclick="backToGame();">BACK</div>
+            <div class="title">
+                <h1>Misere Tic Tac Toe</h1>
+                <p class="slogan">Lose Tic Tac Toe to win Misere.</p>
+            </div>
+            <div class="popup-container">
+                <p>Misere is anti/reverse Tic Tac Toe, where you win if you can enforce your opponent to make three in a row.</p>
+                <h2>How to play</h2>
+                <p>Win a game to raise a level and lose a game to drop a level - then keep playing to raise again.</p>
+                <p>Each game level corresponds to computer's strategy, that is, how many moves ahead computer plans. In order to win you obviously need to plan one move further.</p>
+                <h2>Misere Tic Tac Toe rules</h2>
+                <p>Misere Tic Tac Toe is a turn-based board game for two players, X and O. The game board is a 3x3 grid of squares, where the players alternatively mark one square. Winner is the player who enforces opponent to get a horizontal, vertical or diagonal row of three squares.</p>
+            </div>
+        </div>
+		
+		<script src="../phaser-3.52.min.js"></script>
+		<script src="index.min.js"></script>
+		<script src="../webapp.js"></script>
+    </body>
+</html>
