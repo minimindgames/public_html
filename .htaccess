@@ -24,3 +24,5 @@ ExpiresDefault "access plus 1 week"
 #RewriteCond %{HTTP_HOST} minimindgames\.com [NC]
 #RewriteCond %{REQUEST_URI} ^/$
 #RewriteRule ^(.*)$ /en/minimind/$1 [L]
+
+DirectoryIndex boardgameproblems/index.html
