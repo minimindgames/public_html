@@ -1,1 +1,23 @@
-{"id":4,"board":["K....Q.b","..p....N","p......P","...Pkb..","Rn......","..pp...P",".N...BB.","........"],"moves":2,"initialMoveTo":"Qf7","initialMove":[5,0],"book":"700 chess problems","players":[{},{}]}
+{
+    "id": 4,
+    "board": [
+        "K....Q.b",
+        "..p....N",
+        "p......P",
+        "...Pkb..",
+        "Rn......",
+        "..pp...P",
+        ".N...BB.",
+        "........"
+    ],
+    "moves": 2,
+    "initialMoveTo": "Qf7",
+    "initialMove": [5, 0],
+    "book": "700 chess problems",
+    "players": [
+        {
+        },
+        {
+        }
+    ]
+}

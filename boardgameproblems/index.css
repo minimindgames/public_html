@@ -280,9 +280,11 @@ a {
     .option {
         margin-bottom: 3em;
     }
+
     .prob-desc {
         margin: auto;
         max-width: 100%;
+        min-height: 3em;
     }
     .cell {
         width: 100%;

@@ -1,1 +1,24 @@
-{"name":"tictactoe","minigame":true,"id":1000,"lose":true,"grid":{"size":1,"x":0,"y":0,"w":0,"h":0},"units":[],"players":[{"bot":[{"position":-1}]},{}]}
+{
+    "name": "tictactoe",
+    "minigame": true,
+    "id": 1000,
+    "lose": true,
+    "grid": {
+        "size": 1,
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+    },
+    "units": [
+    ],
+    "players": [
+        {
+            "bot": [{
+                    "position": -1
+                }]
+        },
+        {
+        }
+    ]
+}

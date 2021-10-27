@@ -1,1 +1,23 @@
-{"id":10,"board":["....K...",".p.....B",".P.B...R","P.pkN...","P....P..","..p.p...","..NnP...","...R...."],"moves":2,"initialMoveTo":"Ng6","initialMove":[4,3],"book":"One Hundred Chess Problems","players":[{},{}]}
+{
+    "id": 10,
+    "board": [
+        "....K...",
+        ".p.....B",
+        ".P.B...R",
+        "P.pkN...",
+        "P....P..",
+        "..p.p...",
+        "..NnP...",
+        "...R...."
+    ],
+    "moves": 2,
+    "initialMoveTo": "Ng6",
+    "initialMove": [4, 3],
+    "book": "One Hundred Chess Problems",
+    "players": [
+        {
+        },
+        {
+        }
+    ]
+}
