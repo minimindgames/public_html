@@ -30,7 +30,7 @@ const games = [
     {
         name: 'Super Tic Tac Toe',
         id: 'supertictactoe',
-        desc: 'Win all levels up to HARD strategy.',
+        desc: 'Win the hard strategy at level 3.',
         sub: '',
         levels: 3
     },
@@ -72,9 +72,9 @@ var selectedGame = null;
 function selectGame(id) {
     var buttons = document.getElementsByClassName('problem');
     for (var i = 0; i < buttons.length; i++) {
-        buttons[i].children[0].src = 'icon/prob-button.png';
+        //buttons[i].children[0].src = 'icon/prob-button.png';
     }
-    document.getElementById('problem-' + id).children[0].src = 'icon/prob-button-sel.png';
+    //document.getElementById('problem-' + id).children[0].src = 'icon/prob-button-sel.png';
 
     if (selectedGame) {
         var eGame = document.getElementById(selectedGame);
@@ -101,14 +101,30 @@ function createGame(name, id, level, levels, sub, desc) {
     //<a href="#"><img src="icon/star.png" alt="list item 1" /></a>
     problem.appendChild(img);
     img.className = 'button';
-    img.src = 'icon/prob-button.png';
-    img = document.createElement('img');
-    problem.appendChild(img);
-    img.className = 'star';
-    if (level < levels) {
-        img.src = 'icon/prob-star.png';
-    } else {
-        img.src = 'icon/prob-star-sel.png';
+    //img.src = 'icon/prob-button.png';
+    img.src = 'icon/' + id + sub + ".png";
+    var starContainer = document.createElement('div');
+    starContainer.className = 'star-container';
+    problem.appendChild(starContainer);
+    for (var i = 0; i < 3; i++) {
+        img = document.createElement('img');
+        starContainer.appendChild(img);
+        img.className = 'star';
+        var solved = false;
+        if (i === 0 && level > 0) {
+            solved = true;
+        }
+        if (i === 1 && level >= levels/2) {
+            solved = true;
+        }
+        if (i === 2 && level === levels) {
+            solved = true;
+        }
+        if (!solved) {
+            img.src = 'icon/prob-star.png';
+        } else {
+            img.src = 'icon/prob-star-sel.png';
+        }
     }
 
     eProblems.appendChild(problem);
