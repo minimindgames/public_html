@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>Creepers on Deck: Deck building tower defence realtime strategy gameonline</title><link rel="shortcut icon" type="image/png" href="/favicon.png"><meta name="description" content="Mobile browser."><link rel="canonical" href="./"><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><link rel="manifest" href="/manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Mini Mind"><meta name="apple-mobile-web-app-title" content="Mini Mind"><meta name="theme-color" content="#fff"><meta name="msapplication-navbutton-color" content="#fff"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-starturl" content="/"><link rel="icon" sizes="192x192" href="/img/icon-192.png"><link rel="icon" sizes="512x512" href="/img/icon-512.png"><link rel="apple-touch-icon" href="/img/icon-180.png"><link rel="apple-touch-icon" sizes="192x192" href="/img/icon-192.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/icon-512.png"><link rel="stylesheet" href="/index.min.css"><style>figure {float:left;} #canvas {width: 640px; height: 360px;} @media screen and (min-width: 960px) {width: 960px; height: 540px; } @media screen and (min-width: 1280px) { width: 1280px; height: 720px; } }</style></head><body><header><nav><ul><li><a href="../"><img src="/img/icon-36.png" width="36" height="36" alt="Home"></a></li><li><a href="#creepers-on-deck">Creepers on Deck</a></li><li><a href="#mobile-browser">Mobile browser</a></li></ul></nav><aside><div style="margin: auto; width: 640px;" class="banner"><a href="https://play.google.com/store/apps/details?id=com.minimindgames.boardgameproblems"><img class="banner" width="640" height="228" alt="Get it on Google Play" src="/banner.png"></a></div></aside><h1>Creepers on Deck: Deck building tower defence realtime strategy gameonline</h1><p>Creepers are coming outer space. Get on deck to defend Earth.</p></header><div class="game" id="creepers-on-deck"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Open fullscreen</button></div></div><h2 id="mobile-browser">Mobile browser</h2><div><p>The device requirements and game controls are dead simple: It works on mobile browser and in fullscreen mode.</p><p class="question">Save the day and Earth!</p></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>var urlSearchParams = new URLSearchParams(window.location.search);
+      var isApp = urlSearchParams.has('app');
+      if (isApp) {
+          var e = document.getElementsByClassName('banner')[0];
+          if (e) {
+              e.style.display = 'none';
+          }
+      }</script><script>if (isApp) {
+          var e = document.getElementsByClassName('game')[0];
+          if (e) {
+              e.style.display = 'none';
+          }
+      }
+      function gameConfig(config) {
+          if (isApp) {
+              setGameConfig(config, "5", "");
+          }
+      }</script><script>function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }</script><script>if (!isApp) {
+          async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function() {
+              async('/creepersondeck/index.min.js', function() {
+                  createGame();
+              });
+          });
+      }
+      function startFullScreen() {
+          //console.log('fullscreen', window.game);
+          var game = window.game;
+          if (!game.device && window.game.parent) {
+              game = window.game.parent;
+          }
+          //console.log(game);
+          if (game && game.device.fullscreen && game.device.fullscreen.available) {
+              game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+              game.scene.getAt(0).scale.startFullscreen();
+          }
+      }</script></body></html>
