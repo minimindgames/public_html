@@ -24,7 +24,7 @@
                 box-shadow: 1px 1px 2px #ccf;
                 padding: 1em 0em 1em 0em;
                 text-decoration: none;
-            }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div id="canvas"></div><script>function gameConfig(config) {
+            }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div style="overflow: auto;"><div id="canvas"></div></div><script>function gameConfig(config) {
                 setGameConfig(config, "tech", "");
             }
             function async(u, c) {
@@ -44,6 +44,13 @@
                 let minigame = url.hash.substr(1);
                 if (minigame.charAt(0) === '/') {
                     let minigame = url.hash.substr(2);
+if (minigame === 'creepersondeck') {
+	async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
+		async('/' + minigame + '/index.min.js' + "?v=" + Date.now(), function () {
+			createGame();
+		});
+	});	
+} else
                     async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
                         async('/' + minigame + '/index.min.js', function () {
                             createGame();
