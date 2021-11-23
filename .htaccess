@@ -33,4 +33,4 @@ ExpiresDefault "access plus 1 week"
 #RewriteEngine On
 #RewriteRule ^$ /boardgameproblems [L]
 
-RedirectMatch ^/$ /boardgameproblems/
+RedirectMatch ^/$ /en/boardgameproblems/
