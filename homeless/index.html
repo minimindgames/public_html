@@ -331,13 +331,14 @@
                 } else {
                     drawClock();
                 }
-                
+
                 var h = date.getHours(); // 0 - 23
                 var m = date.getMinutes(); // 0 - 59
                 var s = date.getSeconds(); // 0 - 59
                 if (h === 20 && m === 29 && s === 0) {
                     beep();
                 }
+                /*
                 let day = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][date.getDay()];
                 if (day === 'sun' || day === 'sat') {
                 } else {
@@ -360,7 +361,7 @@
                         }
                     }
                 }
-
+                */
                 setTimeout(showTimeSelect, 1000);
             }
 
