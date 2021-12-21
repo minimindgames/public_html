@@ -1,1 +1,50 @@
-{"id":1,"grid":{"size":1,"x":60,"y":90,"w":10,"h":5},"units":[{"count":10,"type":"Virus","player":1,"unit":[1],"incubate":0.1,"freq":5}],"gates":[{"count":1,"type":"Crusher","player":1,"unit":[1],"freq":5000}],"players":[{"bot":[{"x":0,"y":0}],"station":[{"x":3,"y":5},{"x":7,"y":5}]},{}]}
+{
+    "id": 1,
+    "grid": {
+        "size": 1,
+        "x": 60,
+        "y": 90,
+        "w": 10,
+        "h": 5
+    },
+    "units": [
+        {
+            "count": 10,
+            "type": "Virus",
+            "player": 1,
+            "unit": [1],
+            "incubate": 0.1,
+            "freq": 5
+        }        
+    ],
+    "gates": [
+        {
+            "count": 1,
+            "type": "Crusher",
+            "player": 1,
+            "unit": [1],
+            "freq": 5000
+        }
+    ],
+    "players": [
+        {
+            "bot": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "station": [
+                {
+                    "x": 3,
+                    "y": 5
+                }, {
+                    "x": 7,
+                    "y": 5
+                }
+            ]
+        },
+        {
+        }
+    ]
+}

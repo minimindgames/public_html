@@ -7,28 +7,28 @@
         "w": 10,
         "h": 5
     },
-    "units": [
+    "units2": [
         {
-            "count": 15,
+            "count": 19,
             "type": "Virus",
             "player": 1,
             "unit": [1],
             "incubate": 0.2,
-            "freq": 20
+            "freq": 2
         }
     ],
     "players": [
         {
-            "bot": [{
+            "bot2": [{
                     "x": 5,
                     "y": 5
                 }],
-            "station": [{
-                    "x": 3,
-                    "y": 5
+            "station2": [{
+                    "x": 1.5,
+                    "y": 1.25
                 }, {
-                    "x": 7,
-                    "y": 5
+                    "x": 1.5,
+                    "y": 4
                 }],
             "barrier2": [
                 {
