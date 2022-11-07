@@ -1,34 +1,106 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/super-ristinolla/"><title>Super Tic Tac Toe</title><link rel="shortcut icon" type="image/png" href="/favicon.png"><meta name="description" content="Super Tic Tac Toe rules, super tic tac toe online, games like super tic tac toe."><link rel="canonical" href="./"><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><link rel="manifest" href="/manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Mini Mind"><meta name="apple-mobile-web-app-title" content="Mini Mind"><meta name="theme-color" content="#fff"><meta name="msapplication-navbutton-color" content="#fff"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-starturl" content="/"><link rel="icon" sizes="192x192" href="/img/icon-192.png"><link rel="icon" sizes="512x512" href="/img/icon-512.png"><link rel="apple-touch-icon" href="/img/icon-180.png"><link rel="apple-touch-icon" sizes="192x192" href="/img/icon-192.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/icon-512.png"><link rel="stylesheet" href="/index.min.css"><style></style></head><body><header><nav><ul><li><a href="../"><img src="/img/icon-36.png" width="36" height="36" alt="Home"></a></li><li><a href="#super-tic-tac-toe">Super Tic Tac Toe</a></li><li><a href="#super-tic-tac-toe-rules">Super Tic Tac Toe rules</a></li><li><a href="#super-tic-tac-toe-online">Super Tic Tac Toe online</a></li><li><a href="#games-like-super-tic-tac-toe">Games like Super Tic Tac Toe</a></li></ul></nav><aside><div style="margin: auto; width: 640px;" class="banner"><a href="https://play.google.com/store/apps/details?id=com.minimindgames.boardgameproblems"><img class="banner" width="640" height="228" alt="Get it on Google Play" src="/img/banner-android-boardgame-en.png"></a></div></aside><h1>Super Tic Tac Toe</h1><p>Super Tic Tac Toe is a challenging strategy game with the simple rules of Tic Tac Toe. Super Tic Tac Toe is also known as Mega Tic Tac Toe, Ultimate Tic Tac Toe and Nine Board Tic Tac Toe.</p></header><div class="game" id="super-tic-tac-toe"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Open fullscreen</button></div></div><h2 id="super-tic-tac-toe-rules">Super Tic Tac Toe rules</h2><div><p>Super Tic Tac Toe has nine ordinary Tic Tac Toe boards arranged in a 3x3 grid. Each board is played exactly like original Tic Tac Toe, but the trick is that you can't choose the board to play with (except on initial move).</p><h3 id="first-move">First move</h3><div><figure class="image"><img src="/supertictactoe/image/super-tic-tac-toe-1.png" alt="First move" height="264" width="264"><figcaption>First move</figcaption></figure><p>On the first move, a player is allowed to play on any of the nine boards.</p><p class="question">In the example, X decided to play in the sixth cell of the second board (out of all 81 possible cells).</p></div><h3 id="next-moves">Next moves</h3><div><figure class="image"><img src="/supertictactoe/image/super-tic-tac-toe-2.png" alt="Next moves" height="264" width="264"><figcaption>Next moves</figcaption></figure><p>The player must always play on the BOARD, which matches position of the previously played CELL (note that both are in a 3x3 grid).</p><p class="question">In the example, X has played in the cell number six previously so O must play on the board number six (marked in yellow). Now, O decided to play in the middle cell so X will play next on the middle board.</p></div><p>Important additional rule: If a board where you are about to play has already been resolved, you may (and must) choose another (unresolved) board.</p><h3 id="how-to-win">How to win</h3><div><figure class="image"><img src="/supertictactoe/image/super-tic-tac-toe-3.png" alt="How to win" height="264" width="264"><figcaption>How to win</figcaption></figure><p>The first player, who gets three BOARDS in a line wins the game.</p><p class="question">In this example game, O is playing on the yellow board but it really doesn't matter anymore. Wherever O plays, X can win the top-right board next (that is third in an up-right line) so X wins the whole game.</p></div><p>Super Tic Tac Toe has no definitive winning strategy, and I have very little to say about that. However, it's obvious that winning a single Tic Tac Toe board doesn't really mean much at all.</p></div><h2 id="super-tic-tac-toe-online">Super Tic Tac Toe online</h2><div><p>Super Tic Tac Toe online is a minimalistic game, and it runs almost on any device with an Internet browser.</p></div><h2 id="games-like-super-tic-tac-toe">Games like Super Tic Tac Toe</h2><div><p>You may be interested in games like Super Tic Tac Toe:</p><ul><li><a href="../sudoku-mobile/">Sudoku</a></li><li><a href="/en/tic-tac-toe-online-game/">Tic Tac Toe online game</a></li><li><a href="/en/creepers-on-deck/">Creepers on Deck</a></li><li><a href="/en/minimind/">minimind</a></li><li><a href="/en/beginner-chess-puzzles/">Beginner chess puzzles</a></li><li><a href="/en/mobile-rts-online/">Mobile RTS online</a></li></ul></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>var urlSearchParams = new URLSearchParams(window.location.search);
-      var isApp = urlSearchParams.has('app');
-      if (isApp) {
-          var e = document.getElementsByClassName('banner')[0];
-          if (e) {
-              e.style.display = 'none';
-          }
-      }</script><script>if (isApp) {
-          var e = document.getElementsByClassName('game')[0];
-          if (e) {
-              e.style.display = 'none';
-          }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, minimal-ui=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="alternate" hreflang="fi" href="https://minimindgames.com/fi/super-ristinolla/">
+    <title>Super Tic Tac Toe</title>
+    <meta name="description" content="Super Tic Tac Toe rules, super tic tac toe online, games like super tic tac toe.">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="/index.min.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="#super-tic-tac-toe">Super Tic Tac Toe</a></li>
+          <li><a href="#super-tic-tac-toe-rules">Super Tic Tac Toe rules</a></li>
+          <li><a href="#super-tic-tac-toe-online">Super Tic Tac Toe online</a></li>
+          <li><a href="#games-like-super-tic-tac-toe">Games like Super Tic Tac Toe</a></li>
+        </ul>
+      </nav>
+      <h1>Super Tic Tac Toe</h1>
+      <p>Super Tic Tac Toe is a challenging strategy game with the simple rules of Tic Tac Toe. Super Tic Tac Toe is also known as Mega Tic Tac Toe, Ultimate Tic Tac Toe and Nine Board Tic Tac Toe.</p>
+    </header>
+    <h2 id="super-tic-tac-toe">Super Tic Tac Toe</h2>
+    <div class="game" id="canvas"></div>
+    <div class="center">
+      <button type="button" onclick="startFullScreen();">Open fullscreen</button>
+    </div>
+    <script>
+      function gameConfig(state) {
+          state.loadGame = "tech";
+          state.loadCollection = "";
       }
-      function gameConfig(config) {
-          if (isApp) {
-              setGameConfig(config, "tech", "");
-          }
-      }</script><script>function async(u, c) {
+      function startFullScreen() {
+          window.game.scale.startFullScreen(false);
+      }
+      
+    </script>
+    <script>
+      function async(u, c) {
         var d = document, t = 'script',
             o = d.createElement(t),
             s = d.getElementsByTagName(t)[0];
         o.src = u;
         if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
         s.parentNode.insertBefore(o, s);
-      }</script><script>if (!isApp) {
-          async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
-              async('/supertictactoe/index.min.js', function() {
-                  createGame();
-              });
-          });
       }
-      function startFullScreen() {
-          window.game.scale.startFullScreen(false);
-      }</script></body></html>
+      async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function() {
+          async('/supertictactoe/index.min.js', function() {
+              createGame();
+          });
+      });
+    </script>
+    <main>
+      <article>
+        <h2 id="super-tic-tac-toe-rules">Super Tic Tac Toe rules</h2>
+        <div>
+          <p>Super Tic Tac Toe has nine ordinary Tic Tac Toe boards arranged in a 3x3 grid. Each board is played exactly like original Tic Tac Toe, but the trick is that you can't choose the board to play with (except on initial move).</p>
+          <h3 id="first-move">First move</h3>
+          <div>
+            <figure class="image"><img src="/supertictactoe/image/super-tic-tac-toe-1.png" alt="First move" height="264" width="264">
+              <figcaption>First move</figcaption>
+            </figure>
+            <p>On the first move, a player is allowed to play on any of the nine boards.</p>
+            <p class="question">In the example, X decided to play in the sixth cell of the second board (out of all 81 possible cells).</p>
+          </div>
+          <h3 id="next-moves">Next moves</h3>
+          <div>
+            <figure class="image"><img src="/supertictactoe/image/super-tic-tac-toe-2.png" alt="Next moves" height="264" width="264">
+              <figcaption>Next moves</figcaption>
+            </figure>
+            <p>The player must always play on the BOARD, which matches position of the previously played CELL (note that both are in a 3x3 grid).</p>
+            <p class="question">In the example, X has played in the cell number six previously so O must play on the board number six (marked in yellow). Now, O decided to play in the middle cell so X will play next on the middle board.</p>
+          </div>
+          <p>Important additional rule: If a board where you are about to play has already been resolved, you may (and must) choose another (unresolved) board.</p>
+          <h3 id="how-to-win">How to win</h3>
+          <div>
+            <figure class="image"><img src="/supertictactoe/image/super-tic-tac-toe-3.png" alt="How to win" height="264" width="264">
+              <figcaption>How to win</figcaption>
+            </figure>
+            <p>The first player, who gets three BOARDS in a line wins the game.</p>
+            <p class="question">In this example game, O is playing on the yellow board but it really doesn't matter anymore. Wherever O plays, X can win the top-right board next (that is third in an up-right line) so X wins the whole game.</p>
+          </div>
+          <p>Super Tic Tac Toe has no definitive winning strategy, and I have very little to say about that. However, it's obvious that winning a single Tic Tac Toe board doesn't really mean much at all.</p>
+        </div>
+        <h2 id="super-tic-tac-toe-online">Super Tic Tac Toe online</h2>
+        <div>
+          <p>Super Tic Tac Toe online is a minimalistic game, and it runs almost on any device with an Internet browser.</p>
+        </div>
+        <h2 id="games-like-super-tic-tac-toe">Games like Super Tic Tac Toe</h2>
+        <p>You may be interested in games like Super Tic Tac Toe: <a href="../sudoku-mobile/">Sudoku, </a><a href="/en/tic-tac-toe-online-game/">Tic Tac Toe online game</a>.
+        </p>
+        <div>
+        </div>
+      </article>
+    </main>
+    <hr>
+    <aside class="small">Game credits: Sounds NoiseForFun.com.</aside>
+    <footer><small>&copy; minimindgames.com 2020</small>
+    </footer>
+  </body>
+</html>
