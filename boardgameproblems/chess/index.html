@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, minimal-ui=1, shrink-to-fit=no">
+        <title></title>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" href="../webapp.css">
+    </head>
+    <body>
+        <div id="canvas"></div>
+        
+        <div id="loader"></div>
+
+        <div class="popup" id="guide">
+            <div class="back" onclick="backToGame();">BACK</div>
+            <div class="title">
+                <h1>Chess problem</h1>
+                <p class="slogan">White to mate in two moves.</p>
+            </div>
+            <div class="popup-container">
+                <p>To solve a chess problem, you need to find just the next few moves instead of playing a complete game. A typical chess problem is to checkmate in N moves from a given chess position.</p>
+                <p>The chess problems in this game are from popular chess books, see credits.</p>
+                <h2>How to play</h2>
+                <p>You play with the white pieces and move first. You have only two moves to solve the problem.</p>
+                <p>Note: Computer may take up to a minute to make its move.</p>
+                <h2>Hints and ads</h2>
+                <p>The chess problems presented are challenging, but you may unlock a hint by watching an ad.</p>
+                <h2>Chess rules</h2>
+                <p>If you are not familiar with the "king" game yet, please see <a href="https://minimindgames.com/en/beginner-chess-puzzles/?app=1">the chess rules</a>.</p>
+                <h2>Credits</h2>
+                <ul>
+                    <li>Chess book: One Hundred Chess Problem</li>
+                    <li>Chess book: 700 Chess Problems</li>
+                    <li>Javascript chess.js library from https://github.com/jhlywa/chess.js</li>
+                    <li>Chess piece graphics from https://pixabay.com/vectors/chessboard-chess-board-game-29630</li>
+                </ul>
+            </div>
+        </div>
+		
+		<script src="../phaser-3.52.min.js"></script>
+		<script src="index.min.js"></script>
+		<script src="../webapp.js"></script>
+    </body>
+</html>
