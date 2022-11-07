@@ -1,1 +1,1 @@
-{"id":11,"board":["..R.R...","...pN...","...k..N.","..pP...K","...r...p","......P.",".B.Q.b..","q..r...."],"moves":2,"book":"One Hundred Chess Problems","players":[{},{}]}
+{"id":11,"board":["..R.R...","...pN...","...k..N.","..pP...K","...r...p","......P.",".B.Q.b..","q..r...."],"moves":2,"initialMoveTo":"Nh8","initialMove":[6,2],"book":"One Hundred Chess Problems","players":[{},{}]}
