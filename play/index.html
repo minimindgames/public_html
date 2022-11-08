@@ -25,83 +25,144 @@
                 box-shadow: 1px 1px 2px #ccf;
                 padding: 1em 0em 1em 0em;
                 text-decoration: none;
-            }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div style="/*overflow: auto;*/"><div id="canvas"></div></div><script>function gameConfig(config) {
-                setGameConfig(config, "tech", "");
             }
-            function async(u, c) {
-                var d = document, t = 'script',
-                        o = d.createElement(t),
-                        s = d.getElementsByTagName(t)[0];
-                o.src = u;
-                if (c) {
-                    o.addEventListener('load', function (e) {
-                        c(null, e);
-                    }, false);
+            .back {
+                position: fixed;
+                bottom: 0em;
+                left: 50%;
+                font-size: 1em;
+                width: 12em;
+                margin-left: -6em;
+                background-color:#69f;
+                color: #fff;
+                border-radius:5px;
+                text-align:center;
+                box-shadow: 1px 1px 2px #ccf;
+                padding: 1em 0em 1em 0em;
+                text-decoration: none;
+                aspect-ratio: 0;
+            }
+
+            .popup {
+                display: none;
+                z-index: 1000;
+                background-color: #fff; 
+                width: 100%; 
+                height: 100%;
+                top: 0;
+                position: absolute; 
+                z-index: 1000; 
+            }
+
+            .popup-container {
+                margin: 1em;
+                padding-bottom: 3em; /* height of back button */
+            }
+
+            .title {
+                background-color: #000;
+                color: #fff;
+                padding: 1em;
+                aspect-ratio: 0;
+            }
+
+            .slogan {
+                padding-left: 2em;
+                font-style: italic;
+            }
+
+            .banner-image {
+                max-width: 80%;
+            }
+
+            .popup-content {
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                margin: auto; 
+                height: 100%;
+                text-align: center;
+            }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div style="/*overflow: auto;*/"><div id="canvas"></div></div><div class="popup" id="guide"><script>function gameConfig(config) {
+                    setGameConfig(config, "tech", "");
                 }
-                s.parentNode.insertBefore(o, s);
-            }
-            const url = new URL(window.location.href);
-            if (url.hash.length > 1) {
-                let minigame = url.hash.substr(1);
-                if (minigame.charAt(0) === '/') {
-                    let minigame = url.hash.substr(2);
-                    if (minigame === 'creepersondeck' || minigame === 'chess') {
+                function async(u, c) {
+                    var d = document, t = 'script',
+                            o = d.createElement(t),
+                            s = d.getElementsByTagName(t)[0];
+                    o.src = u;
+                    if (c) {
+                        o.addEventListener('load', function (e) {
+                            c(null, e);
+                        }, false);
+                    }
+                    s.parentNode.insertBefore(o, s);
+                }
+                const url = new URL(window.location.href);
+                if (url.hash.length > 1) {
+                    let minigame = url.hash.substr(1);
+                    if (minigame.charAt(0) === '/') {
+                        let minigame = url.hash.substr(2);
+                        if (minigame === 'creepersondeck' || minigame === 'chess') {
+                            async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
+                                async('/' + minigame + '/index.min.js' + "?v=" + Date.now(), function () {
+                                    if (!window.game)
+                                        createGame();
+                                });
+                            });
+                        } else
+                            async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
+                                async('/' + minigame + '/index.min.js', function () {
+                                    if (!window.game)
+                                        createGame();
+                                });
+                            });
+                    } else {
                         async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                            async('/' + minigame + '/index.min.js' + "?v=" + Date.now(), function () {
-                                createGame();
+                            async('/minigame/index.min.js' + "?v=" + Date.now() + '#' + minigame, function () {
+                                if (!window.game)
+                                    createGame();
                             });
                         });
-                    } else
-                        async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
-                            async('/' + minigame + '/index.min.js', function () {
-                                createGame();
-                            });
-                        });
+                    }
                 } else {
                     async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                        async('/minigame/index.min.js' + "?v=" + Date.now() + '#' + minigame, function () {
-                            createGame();
+                        async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
+                            if (!window.game)
+                                createGame();
                         });
                     });
                 }
-            } else {
-                async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                    async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
-                        createGame();
-                    });
-                });
-            }
 
-            function startFullScreen() {
-                //console.log('fullscreen', window.game);
-                fullscreenDiv.style.display = 'none';
-
-                if (window.game && window.game.scale && window.game.scale.startFullScreen) {
-                    window.game.scale.startFullScreen(false);
-                    return;
-                }
-
-                var game = window.game;
-                if (!game.device && window.game.parent) {
-                    game = window.game.parent;
-                }
-                //console.log(game);
-                if (game && game.device.fullscreen && game.device.fullscreen.available) {
-                    game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
-                    game.scene.getAt(0).scale.startFullscreen();
-                }
-            }
-            var fullscreenDiv = document.getElementById('fullscreen');
-            function fade(opacity) {
-                if (fullscreenDiv.style.display === 'none') {
-                    return;
-                }
-                fullscreenDiv.style.opacity = opacity / 100;
-                fullscreenDiv.style.filter = 'alpha(opacity=' + opacity + ')';
-                if (opacity === 1) {
+                function startFullScreen() {
+                    //console.log('fullscreen', window.game);
                     fullscreenDiv.style.display = 'none';
+
+                    if (window.game && window.game.scale && window.game.scale.startFullScreen) {
+                        window.game.scale.startFullScreen(false);
+                        return;
+                    }
+
+                    var game = window.game;
+                    if (!game.device && window.game.parent) {
+                        game = window.game.parent;
+                    }
+                    //console.log(game);
+                    if (game && game.device.fullscreen && game.device.fullscreen.available) {
+                        game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+                        game.scene.getAt(0).scale.startFullscreen();
+                    }
                 }
-            }
-            for (let i = 1; i <= 100; i++) {
-                setTimeout("fade(" + (100 - i) + ")", i * 100);
-            }</script></body></html>
+                var fullscreenDiv = document.getElementById('fullscreen');
+                function fade(opacity) {
+                    if (fullscreenDiv.style.display === 'none') {
+                        return;
+                    }
+                    fullscreenDiv.style.opacity = opacity / 100;
+                    fullscreenDiv.style.filter = 'alpha(opacity=' + opacity + ')';
+                    if (opacity === 1) {
+                        fullscreenDiv.style.display = 'none';
+                    }
+                }
+                for (let i = 1; i <= 100; i++) {
+                    setTimeout("fade(" + (100 - i) + ")", i * 100);
+                }</script></div></body></html>
