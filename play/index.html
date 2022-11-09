@@ -82,87 +82,87 @@
                 margin: auto; 
                 height: 100%;
                 text-align: center;
-            }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div style="/*overflow: auto;*/"><div id="canvas"></div></div><div class="popup" id="guide"><script>function gameConfig(config) {
-                    setGameConfig(config, "tech", "");
+            }</style></head><body><button id="fullscreen" onclick="startFullScreen();" class="float">FULLSCREEN</button><div style="/*overflow: auto;*/"><div id="canvas"></div></div><div class="popup" id="guide"></div><div id="loader"></div><script>function gameConfig(config) {
+                setGameConfig(config, "tech", "");
+            }
+            function async(u, c) {
+                var d = document, t = 'script',
+                        o = d.createElement(t),
+                        s = d.getElementsByTagName(t)[0];
+                o.src = u;
+                if (c) {
+                    o.addEventListener('load', function (e) {
+                        c(null, e);
+                    }, false);
                 }
-                function async(u, c) {
-                    var d = document, t = 'script',
-                            o = d.createElement(t),
-                            s = d.getElementsByTagName(t)[0];
-                    o.src = u;
-                    if (c) {
-                        o.addEventListener('load', function (e) {
-                            c(null, e);
-                        }, false);
-                    }
-                    s.parentNode.insertBefore(o, s);
-                }
-                const url = new URL(window.location.href);
-                if (url.hash.length > 1) {
-                    let minigame = url.hash.substr(1);
-                    if (minigame.charAt(0) === '/') {
-                        let minigame = url.hash.substr(2);
-                        if (minigame === 'creepersondeck' || minigame === 'chess') {
-                            async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                                async('/' + minigame + '/index.min.js' + "?v=" + Date.now(), function () {
-                                    if (!window.game)
-                                        createGame();
-                                });
-                            });
-                        } else
-                            async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
-                                async('/' + minigame + '/index.min.js', function () {
-                                    if (!window.game)
-                                        createGame();
-                                });
-                            });
-                    } else {
+                s.parentNode.insertBefore(o, s);
+            }
+            const url = new URL(window.location.href);
+            if (url.hash.length > 1) {
+                let minigame = url.hash.substr(1);
+                if (minigame.charAt(0) === '/') {
+                    let minigame = url.hash.substr(2);
+                    if (minigame === 'creepersondeck' || minigame === 'chess') {
                         async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                            async('/minigame/index.min.js' + "?v=" + Date.now() + '#' + minigame, function () {
+                            async('/' + minigame + '/index.min.js' + "?v=" + Date.now(), function () {
                                 if (!window.game)
                                     createGame();
                             });
                         });
-                    }
+                    } else
+                        async('//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js', function () {
+                            async('/' + minigame + '/index.min.js', function () {
+                                if (!window.game)
+                                    createGame();
+                            });
+                        });
                 } else {
                     async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
-                        async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
+                        async('/minigame/index.min.js' + "?v=" + Date.now() + '#' + minigame, function () {
                             if (!window.game)
                                 createGame();
                         });
                     });
                 }
+            } else {
+                async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function () {
+                    async('/minimind/index.min.js' + "?v=" + Date.now(), function () {
+                        if (!window.game)
+                            createGame();
+                    });
+                });
+            }
 
-                function startFullScreen() {
-                    //console.log('fullscreen', window.game);
+            function startFullScreen() {
+                //console.log('fullscreen', window.game);
+                fullscreenDiv.style.display = 'none';
+
+                if (window.game && window.game.scale && window.game.scale.startFullScreen) {
+                    window.game.scale.startFullScreen(false);
+                    return;
+                }
+
+                var game = window.game;
+                if (!game.device && window.game.parent) {
+                    game = window.game.parent;
+                }
+                //console.log(game);
+                if (game && game.device.fullscreen && game.device.fullscreen.available) {
+                    game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+                    game.scene.getAt(0).scale.startFullscreen();
+                }
+            }
+            var fullscreenDiv = document.getElementById('fullscreen');
+            function fade(opacity) {
+                if (fullscreenDiv.style.display === 'none') {
+                    return;
+                }
+                fullscreenDiv.style.opacity = opacity / 100;
+                fullscreenDiv.style.filter = 'alpha(opacity=' + opacity + ')';
+                if (opacity === 1) {
                     fullscreenDiv.style.display = 'none';
-
-                    if (window.game && window.game.scale && window.game.scale.startFullScreen) {
-                        window.game.scale.startFullScreen(false);
-                        return;
-                    }
-
-                    var game = window.game;
-                    if (!game.device && window.game.parent) {
-                        game = window.game.parent;
-                    }
-                    //console.log(game);
-                    if (game && game.device.fullscreen && game.device.fullscreen.available) {
-                        game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
-                        game.scene.getAt(0).scale.startFullscreen();
-                    }
                 }
-                var fullscreenDiv = document.getElementById('fullscreen');
-                function fade(opacity) {
-                    if (fullscreenDiv.style.display === 'none') {
-                        return;
-                    }
-                    fullscreenDiv.style.opacity = opacity / 100;
-                    fullscreenDiv.style.filter = 'alpha(opacity=' + opacity + ')';
-                    if (opacity === 1) {
-                        fullscreenDiv.style.display = 'none';
-                    }
-                }
-                for (let i = 1; i <= 50; i++) {
-                    setTimeout("fade(" + (50 - i) + ")", i * 50);
-                }</script></div></body></html>
+            }
+            for (let i = 1; i <= 50; i++) {
+                setTimeout("fade(" + (50 - i) + ")", i * 50);
+            }</script></body></html>
