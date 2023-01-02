@@ -24,7 +24,7 @@
         s.parentNode.insertBefore(o, s);
       }</script><script>if (!isApp) {
           async('//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js', function() {
-              async('/spooky/index.min.js', function() {
+              async('/spooky/index.min.js?t=' + Date.now(), function() {
                   createGame();
               });
           });
