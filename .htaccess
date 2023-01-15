@@ -20,9 +20,9 @@ ExpiresActive On
 ExpiresDefault "access plus 1 week"
 </FilesMatch>
 
-<FilesMatch ".(json)$">
-ExpiresActive On
-ExpiresDefault "access plus 1 second"
+<FilesMatch "\.(json)$">
+ForceType application/octet-stream
+Header set Content-Disposition attachment
 </FilesMatch>
 
 RedirectMatch ^/$ /fi/
