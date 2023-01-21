@@ -1,1 +1,1 @@
-{"id":0,"grid":{"size":1,"x":60,"y":90,"w":5,"h":5},"units":[{"type":"Guard","player":1,"unit":[1],"fixed":1,"freq":1}],"players":[{"bot":[{"position":-1}]},{"guard":[{"incubation":-1,"x":3,"y":3}]}]}
+{"id":0,"grid":{"size":1,"x":60,"y":90,"w":9,"h":9},"units":[{"type":"Guard","player":1,"unit":[1],"fixed":1,"freq":1}],"players":[{"bot":[{"position":-1}]},{"guard":[{"incubation":-1,"x":3,"y":3},{"incubation":-1,"x":5,"y":5}]}]}
