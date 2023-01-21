@@ -15,14 +15,9 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-<FilesMatch ".(ico|jpg|jpeg|png|gif|js|ogg|mp3|css)$">
+<FilesMatch ".(json|ico|jpg|jpeg|png|gif|js|ogg|mp3|css)$">
 ExpiresActive On
 ExpiresDefault "access plus 1 week"
-</FilesMatch>
-
-<FilesMatch "\.(json)$">
-ForceType application/octet-stream
-Header set Content-Disposition attachment
 </FilesMatch>
 
 RedirectMatch ^/$ /fi/
