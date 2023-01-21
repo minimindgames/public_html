@@ -24,7 +24,7 @@
         s.parentNode.insertBefore(o, s);
       }</script><script>if (!isApp) {
           async('//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js', function() {
-              async('/darkuniverse/index.min.js', function() {
+              async('/darkuniverse/index.min.js?t=' + Date.now(), function() {
                   createGame();
               });
           });
