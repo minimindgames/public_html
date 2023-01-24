@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="effect-snowflake-1.png"	x="80"	y="729"	width="24"	height="24" frameX="-0" frameY="-0" frameWidth="24" frameHeight="24"/>
+	<SubTexture name="effect-snowflake-2.png"	x="0"	y="1003"	width="20"	height="19" frameX="-0" frameY="-0" frameWidth="20" frameHeight="19"/>
+	<SubTexture name="effect-snowflake-3.png"	x="105"	y="729"	width="21"	height="21" frameX="-0" frameY="-0" frameWidth="21" frameHeight="21"/>
+	<SubTexture name="header-exit.png"	x="1246"	y="728"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-health.png"	x="1143"	y="63"	width="61"	height="57" frameX="-0" frameY="-0" frameWidth="61" frameHeight="57"/>
+	<SubTexture name="header-info.png"	x="1299"	y="468"	width="60"	height="60" frameX="-0" frameY="-0" frameWidth="60" frameHeight="60"/>
+	<SubTexture name="header-option-bg.png"	x="1222"	y="0"	width="402"	height="402" frameX="-0" frameY="-0" frameWidth="402" frameHeight="402"/>
+	<SubTexture name="header-option-fullscreen-active.png"	x="1298"	y="529"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-fullscreen.png"	x="1300"	y="793"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-reset.png"	x="1298"	y="594"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-sound-active.png"	x="1299"	y="403"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-option-sound.png"	x="1300"	y="858"	width="63"	height="63" frameX="-0" frameY="-0" frameWidth="63" frameHeight="63"/>
+	<SubTexture name="header-option.png"	x="1296"	y="661"	width="64"	height="64" frameX="-0" frameY="-0" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="header-score-land.png"	x="427"	y="923"	width="212"	height="65" frameX="-0" frameY="-0" frameWidth="212" frameHeight="65"/>
+	<SubTexture name="header-score-port.png"	x="214"	y="923"	width="212"	height="65" frameX="-0" frameY="-0" frameWidth="212" frameHeight="65"/>
+	<SubTexture name="main-board-bg.png"	x="0"	y="121"	width="646"	height="607" frameX="-0" frameY="-0" frameWidth="646" frameHeight="607"/>
+	<SubTexture name="main-board-chapter-button.png"	x="0"	y="761"	width="548"	height="161" frameX="-0" frameY="-0" frameWidth="548" frameHeight="161"/>
+	<SubTexture name="main-more-games.png"	x="717"	y="761"	width="150"	height="150" frameX="-0" frameY="-0" frameWidth="150" frameHeight="150"/>
+	<SubTexture name="number-1.png"	x="1222"	y="529"	width="75"	height="131" frameX="-0" frameY="-0" frameWidth="75" frameHeight="131"/>
+	<SubTexture name="number-2.png"	x="969"	y="890"	width="91"	height="132" frameX="-0" frameY="-0" frameWidth="91" frameHeight="132"/>
+	<SubTexture name="number-3.png"	x="868"	y="890"	width="100"	height="131" frameX="-0" frameY="-0" frameWidth="100" frameHeight="131"/>
+	<SubTexture name="play-block-1.png"	x="1227"	y="844"	width="72"	height="72" frameX="-0" frameY="-0" frameWidth="72" frameHeight="72"/>
+	<SubTexture name="play-block-2.png"	x="640"	y="921"	width="116"	height="72" frameX="-0" frameY="-0" frameWidth="116" frameHeight="72"/>
+	<SubTexture name="play-block-3.png"	x="1222"	y="661"	width="73"	height="66" frameX="-0" frameY="-0" frameWidth="73" frameHeight="66"/>
+	<SubTexture name="play-block-5.png"	x="1227"	y="917"	width="72"	height="72" frameX="-0" frameY="-0" frameWidth="72" frameHeight="72"/>
+	<SubTexture name="play-goal-1.png"	x="1222"	y="466"	width="76"	height="62" frameX="-0" frameY="-0" frameWidth="76" frameHeight="62"/>
+	<SubTexture name="play-goal-2.png"	x="1143"	y="0"	width="76"	height="62" frameX="-0" frameY="-0" frameWidth="76" frameHeight="62"/>
+	<SubTexture name="play-goal-3.png"	x="1222"	y="403"	width="76"	height="62" frameX="-0" frameY="-0" frameWidth="76" frameHeight="62"/>
+	<SubTexture name="popup-banner-bg.png"	x="1361"	y="659"	width="48"	height="120" frameX="-0" frameY="-0" frameWidth="48" frameHeight="120"/>
+	<SubTexture name="popup-banner.png"	x="0"	y="0"	width="810"	height="120" frameX="-0" frameY="-0" frameWidth="810" frameHeight="120"/>
+	<SubTexture name="popup-dialog-bg.png"	x="647"	y="121"	width="574"	height="639" frameX="-0" frameY="-0" frameWidth="574" frameHeight="639"/>
+	<SubTexture name="popup-dialog-close.png"	x="1246"	y="793"	width="45"	height="45" frameX="-0" frameY="-0" frameWidth="45" frameHeight="45"/>
+	<SubTexture name="popup-dialog-play.png"	x="0"	y="923"	width="213"	height="79" frameX="-0" frameY="-0" frameWidth="213" frameHeight="79"/>
+	<SubTexture name="popup-dim.png"	x="868"	y="761"	width="128"	height="128" frameX="-0" frameY="-0" frameWidth="128" frameHeight="128"/>
+	<SubTexture name="popup-hand.png"	x="757"	y="912"	width="106"	height="82" frameX="-0" frameY="-0" frameWidth="106" frameHeight="82"/>
+	<SubTexture name="quack-dance-1.png"	x="549"	y="761"	width="167"	height="159" frameX="-0" frameY="-0" frameWidth="167" frameHeight="159"/>
+	<SubTexture name="quack-die-1.png"	x="997"	y="844"	width="49"	height="43" frameX="-0" frameY="-0" frameWidth="49" frameHeight="43"/>
+	<SubTexture name="quack-die-2.png"	x="267"	y="989"	width="48"	height="33" frameX="-0" frameY="-0" frameWidth="48" frameHeight="33"/>
+	<SubTexture name="quack-die-3.png"	x="811"	y="83"	width="50"	height="37" frameX="-0" frameY="-0" frameWidth="50" frameHeight="37"/>
+	<SubTexture name="quack-die-4.png"	x="214"	y="989"	width="52"	height="33" frameX="-0" frameY="-0" frameWidth="52" frameHeight="33"/>
+	<SubTexture name="quack-die-5.png"	x="0"	y="729"	width="43"	height="26" frameX="-0" frameY="-0" frameWidth="43" frameHeight="26"/>
+	<SubTexture name="quack-die-6.png"	x="44"	y="729"	width="35"	height="22" frameX="-0" frameY="-0" frameWidth="35" frameHeight="22"/>
+	<SubTexture name="quack-fly-1.png"	x="997"	y="761"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-fly-2.png"	x="1060"	y="0"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-fly-3.png"	x="894"	y="0"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-fly-4.png"	x="811"	y="0"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-freeze-1.png"	x="1061"	y="928"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-run-1.png"	x="1163"	y="761"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-run-2.png"	x="1061"	y="844"	width="82"	height="83" frameX="-0" frameY="-0" frameWidth="82" frameHeight="83"/>
+	<SubTexture name="quack-run-3.png"	x="1080"	y="761"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-run-4.png"	x="977"	y="0"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-run-5.png"	x="1144"	y="844"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+	<SubTexture name="quack-run-6.png"	x="1144"	y="927"	width="82"	height="82" frameX="-0" frameY="-0" frameWidth="82" frameHeight="82"/>
+</TextureAtlas>
