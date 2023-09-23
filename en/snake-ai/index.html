@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><title>Snake AI</title><link rel="shortcut icon" type="image/png" href="/favicon.png"><meta name="description" content="How to play, some more games."><link rel="canonical" href="./"><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><link rel="manifest" href="/manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Mini Mind"><meta name="apple-mobile-web-app-title" content="Mini Mind"><meta name="theme-color" content="#fff"><meta name="msapplication-navbutton-color" content="#fff"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-starturl" content="/"><link rel="icon" sizes="192x192" href="/img/icon-192.png"><link rel="icon" sizes="512x512" href="/img/icon-512.png"><link rel="apple-touch-icon" href="/img/icon-180.png"><link rel="apple-touch-icon" sizes="192x192" href="/img/icon-192.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/icon-512.png"><link rel="stylesheet" href="/index.min.css"><style>html, body {max-width: 2560px;} #canvas {background-color: #333; width: 640px; height: 360px;} @media screen and (min-width: 1280px) and (min-height: 720px) { #canvas {width: 1280px; height: 720px;} } @media screen and (min-width: 1920px) and (min-height: 980px) { #canvas {width: 1920px; height: 980px;} } @media screen and (min-width: 2560px) and (min-height: 1440px) { #canvas {width: 2560px; height: 1440px;} }</style><script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script></head><body><header><nav><ul><li><a href="../"><img src="/img/icon-36.png" width="36" height="36" alt="Home"></a></li><li><a href="#snake-ai">Snake AI</a></li><li><a href="#how-to-play">How to play</a></li><li><a href="#some-more-games">Some more games</a></li></ul></nav></header><div class="game" id="snake-ai"><div id="canvas"></div><div class="center"><button type="button" onclick="startFullScreen();">Open fullscreen</button></div></div><h1 id="snake-ai">Snake AI</h1><p>A scary game to play at Halloween when it gets dark out there.</p><h2 id="how-to-play">How to play</h2><div><p>Play on any device, such as:</p><ol><li>Mobile with touchscreen</li><li>Computer with mouse</li><li>Arrow keys and spacebar</li><li>D-pad controller with a B-key</li><li>Game controller with Gopher360</li></ol></div><h2 id="some-more-games">Some more games</h2><div><p>You may like about similar games:</p><ul><li><a href="/en/snake-game/">Snake game</a></li><li><a href="/en/snake-game/">Snake game</a></li><li><a href="/en/clave-game/">Clave game</a></li><li><a href="/en/top-down-racing-game/">Top down racing game</a></li><li><a href="/en/children-games/">Children games</a></li></ul></div><hr><footer><small>&copy; minimindgames.com 2021</small></footer><script>function gameConfig(config) {
+          setGameConfig(config, "tech", "");
+      }</script><script>function async(u, c, type) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        if (type) {
+          o.type = 'module';
+        }
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+      }</script><script>async('//cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js', function() {
+          async('/snake-ai/index.min.js?t=' + Date.now(), function() {
+              createGame();
+          });
+      });
+      function startFullScreen() {
+          //console.log('fullscreen', window.game);
+          var game = window.game;
+          if (!game.device && window.game.parent) {
+              game = window.game.parent;
+          }
+          //console.log(game);
+          if (game && game.device.fullscreen && game.device.fullscreen.available) {
+              game.scene.getAt(0).scale.fullscreenTarget = document.getElementById('canvas');
+              game.scene.getAt(0).scale.startFullscreen();
+          }
+      }</script></body></html>
